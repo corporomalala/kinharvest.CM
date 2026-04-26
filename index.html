@@ -12,9 +12,15 @@
 
    body, html { width: 100%; height: 100% }
 
-   html { background-color: #F0E8D9; }
+   html,
+   .about { background-color: #F0E8D9; }
 
    * { text-align: center; }
+   label { text-decoration: underline; }
+
+/*** Z-INDEX ***/
+.about { position: relative; z-index: 10; }
+input, label { position: relative; z-index: 18; }
 
 /*** COMPONENTS ***/
 body,
@@ -27,32 +33,44 @@ figure img,
   aside video { width 30%; }
 
 div,
-hgroup {
+hgroup,
+.about {
   padding: 10% 18%;
 }
 figure img {
   width: 25%;
   margin: 10px;
 }
+
+.about {
+    position: absolute; top: 0; bottom: 0; left:0; right:0;
+    display: block; margin: auto;
+}
+
+/*** INTERACTIVITY ***/
+.about { display: none; }
+#chbx4about:checked ~ main .about { display: block; }
 		</style>
 	</head>
 	<body>
-  <hgroup>
-    <h1>Kin Harvest</h1>
-    <p><br />The farm has been renamed recently and the title "Kin Harvest" has now returned to the founding member who named it: <a href="https://instagram.com/MadamEllaMalala">Madam Ella</a>. <br /><br />As we cogitate on how best to utilize the brand name, feel free to reach out to Madam Ella directly: <a href="https://wa.me/+27630478534/">+27 63 047 8534</a>.!</p>
-  </hgroup>
+	 <input id="chbx4about" type="checkbox" checked />
+	 <main>
+    <hgroup>
+      <h1>Kin Harvest</h1>
+      <p><br />The farm has been renamed recently and the title "Kin Harvest" has now returned to the founding member who named it: <a href="https://instagram.com/MadamEllaMalala">Madam Ella</a>. <br /><br />As we cogitate on how best to utilize the brand name, feel free to reach out to Madam Ella directly: <a href="https://wa.me/+27630478534/">+27 63 047 8534</a>.!</p>
+    </hgroup>
 
-  <span class="CSS-spacer"></span>
+    <span class="CSS-spacer"></span>
   
-  <div>
-    <figure>
-      <img src="/product1_a.png" />
-      <img src="/product1_b.png" />
-      <img src="/product1_c.png" />
-      <img src="/product1_d.png" />
-    </figure>
+    <div>
+      <figure>
+        <img src="/product1_a.png" />
+        <img src="/product1_b.png" />
+        <img src="/product1_c.png" />
+        <img src="/product1_d.png" />
+      </figure>
 
-    <p>"Salad Spinner with Cutting Accessories", at the supplier price of <b>R178 only</b>! No minimum order!</p>
+      <p>"Salad Spinner with Cutting Accessories", at the supplier price of <b>R178 only</b>! No minimum order! <br /><br /><label for="chbx4about">View AD from the Farm?</label></p>
 
     <!--
     <figure>
@@ -64,21 +82,22 @@ figure img {
     <figure>
     -->
 
-    <figure>
-      <img src="/community2_a.png" />
-      <aside>
-        <video><source src="congolesefood1.mp4" type="video/mp4" /></video>
-        <p>INVITATION from the Farmers... Fresh Pondu at R40!</p>
-      </aside>
-    <figure>
+      <figure class="about">
+        <img src="/community2_a.png" />
+        <aside>
+          <video><source src="congolesefood1.mp4" type="video/mp4" /></video>
+          <p>INVITATION from the Farmers... Fresh Pondu at R40!</p>
+        </aside>
+      <figure>
 
     <!--
     <figure>
       <video><source src="congolesefood1.mp4" type="video/mp4" /></video>
     </figure>
     -->
-  </div>
+    </div>
 
-		<img src="/harvest.png" />
+	   	<img src="/harvest.png" />
+		</main>
 	</body>
 </html>
