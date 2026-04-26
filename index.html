@@ -43,13 +43,14 @@ figure img {
 }
 
 .about {
-    position: absolute; top: 0; bottom: 0; left:0; right:0;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: auto;
     display: block; margin: auto;
 }
 
 /*** INTERACTIVITY ***/
-.about { display: none; }
-#chbx4about:checked ~ main .about { display: block; }
+.about { height: 0; overflow: hidden; }
+#chbx4about:checked ~ main .about { height: auto; overflow: visible; }
 		</style>
 	</head>
 	<body>
@@ -82,7 +83,7 @@ figure img {
     <figure>
     -->
 
-      <figure class="about">
+      <figure>
         <img src="/community2_a.png" />
         <aside>
           <video><source src="congolesefood1.mp4" type="video/mp4" /></video>
