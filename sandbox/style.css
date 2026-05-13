@@ -1,0 +1,246 @@
+/***  RESET ***/
+* { padding: 0; margin: 0; box-sizing: border-box;  font-size: 1em; }
+a { color: black; text-decoration: none; } a, label, figcaption { display: inline-block; } img { width: 100%; height: auto; background-size: contain; } input[type="checkbox"], input[type="radio"] { display: none; } ol, ul { list-style: none; }
+/*** END RESET ***/
+
+/*** CANCEL ***/
+/*** END CANCEL ***/
+
+/*** COLORS ***/
+.about-founder img,
+.catalog { background-color: #4A604D; }
+.about .u-btn,
+.about .u-cta { background-color: #4A604D !important; }
+.about h1,
+.about-header span { color: #4A604D; }
+
+a.u-btn:hover,
+a.u-btn:active,
+a.u-btn:focus,
+a.u-cta:hover,
+a.u-cta:active,
+a.u-cta:focus { background-color: #eee !important; color: black; }
+
+.catalog .u-btn,
+.catalog .u-cta,
+.m-details { background-color: #AAA; }
+
+body,
+.catalog figure figcaption { background-color: #eee; }
+.catalog header,
+.u-btn, .u-cta { color: #eee; }
+/*** END COLORS ***/
+
+/*** FONTS ***/
+.about-header h2,
+.catalog h3 { font-size: 1.8em; }
+.about-header h1 { font-size: 1.18em; }
+.about-header a { font-size: .75em; }
+
+.catalog footer,
+.footer,
+.u-btn { text-align: center; }
+				.catalog .m-details { text-align: initial; }
+.about-header a,
+.about-nav > label,
+.footer a { text-decoration: underline; }
+/*** END FONTS ***/
+
+/*** MEDIA ***/
+.about-nav .u-btn { background-image: url("../assets/drcflag2.png"); }
+.about-nav .u-btn {
+				background-size: cover;
+}
+
+.catalog figure img {  }
+.catalog figure img {
+				background-position: center top;
+				background-repeat: no-repeat;
+				background-size: contain;
+}
+/*** END MEDIA ***/
+
+/*** UTILITIES ***/
+				/*** .u-btn & .u-cta ***/
+				.u-btn {
+								width: 2.4em;
+								padding: .5em 0;
+				}
+				.u-cta {
+								padding: .5em 1em;
+				}
+/*** END UTILITIES ***/
+
+/*** MIXINS ***/
+				/*** .m-details ***/
+				.m-details {
+								position: absolute; top: 10%; left: 10%;
+								width: 80%; height: 80%;
+				}
+				.m-details label {
+								font-size: 1.8em;
+								
+								position: absolute; top: .18em; right: .5em;
+				}
+				.m-details p {
+								width: 100%; height: 100%;
+								overflow-y: scroll;
+								padding: 1em;
+				}
+				.catalog .m-details .CSSbold { text-transform: uppercase; }
+/*** END MIXINS ***/
+
+/*** COMPONENTS ***/
+				/*** COMMONS ***/
+				.u-btn, .u-cta { border-radius: 4em; }
+				.catalog { border-radius: 1em; }
+				.about-founder img { border-radius: 50%; }
+
+				.about, .catalog { position: relative; }
+
+				/*** .about ***/
+				.about-founder { display: flex; }
+
+				.about-founder div { width: 80%; }
+				.about-founder figure { width: 18%; }
+
+				.about-founder img { aspect-ratio: 1/1; }
+				.about-founder p { margin-top: 1em; }
+
+				.about-header { position: relative; }
+				.about-header h2 { margin: 1em 0; }
+				.about-header a { position: absolute; top: 0; right: 0; }
+
+				.about-nav { margin: 1em 0; margin-bottom: 4em; }
+				.about-nav > label { margin-left: .5em; }
+
+				/*** .catalog ***/
+				.catalog li,
+//				.catalog figure,
+				.catalog header { display: flex; }
+				.catalog li { flex-direction: column; }
+				.catalog header { flex-direction: row-reversed; }
+				.catalog article, .catalog article figure,
+				.catalog header hgroup { flex: 1; }
+
+				/*
+				.catalog ul { background-color: purple; }
+				.catalog,
+				.catalog li, .catalog ul {
+								width: 100%; height: 100%;
+								display: block;
+				}
+				*/
+
+				.catalog figure { position: relative; }
+				.catalog figure img {
+								aspect-ratio: 16/9;
+// 							aspect-ratio: 3/4;
+	//							background-color: green;
+				}
+				/**
+				.catalog figure img:nth-child(1),
+				.catalog figure img:nth-child(3) { width: 30%; }
+				.catalog figure img:nth-child(2) { width: 70%; }
+				**/
+				.catalog figure figcaption { 
+								position: absolute; bottom: 10%; left: 0; right: 0;
+								min-width: 4em; max-width: 40%; margin: auto;
+								display: inline-block;
+								padding: 1em;
+								/*
+								padding-left: initial; padding-right: initial; text-align: center;
+								*/
+				}
+
+
+				.catalog header { position: relative; }
+				.catalog header nav { position: absolute; top: 0; right: 0; }
+
+				.catalog hgroup span:nth-child(1) { display: block !important; }
+				.catalog hgroup h3,
+				.catalog hgroup span { display: inline; }
+
+				.catalog footer label { margin-bottom: .5em; }
+
+				/*** .footer ***/
+				.footer {
+								padding: 1em;
+				}
+/*** END COMPONENTS ***/
+
+/*** INTERACTIVITY ***/
+.m-details { display: none; }
+#chbx4details:checked ~ main .about .m-details { display: block; }
+#chbx4faqs:checked ~ main .catalog .m-details { display: block; }
+
+.catalog li { display: none; }
+#rdb4catalog1:checked ~ main .catalog li:nth-child(1),
+#rdb4catalog2:checked ~ main .catalog li:nth-child(2),
+#rdb4catalog3:checked ~ main .catalog li:nth-child(3),
+#rdb4catalog4:checked ~ main .catalog li:nth-child(4),
+.jekyllPlaceholderClassname { display: block; }
+/*** END INTERACTIVITY ***/
+
+/*** MEDIA QUERIES ***/
+@media screen and (max-width: 50em) {
+				/*** FONTS ***/
+				html { font-size: 14px; }
+				
+				/*** MIXINS ***/
+				
+				/*** COMPONENTS: COMMONS ***/
+				main { padding: 1em; }
+				
+				/*** COMPONENTS: .about ***/
+								/*** VIEWPORT: .about ***/
+								.about { padding-bottom: 4em; }
+				
+				/*** COMPONENTS: .catalog ***/
+				.catalog { padding: 1em; }
+				.catalog figure { margin: 1em 0; }
+								/*** VIEWPORT: .catalog ***/
+								.catalog { // min-height: 80vh; }
+}
+@media screen and (min-width: 50em) {
+				/*** FONTS ***/
+				html { font-size: 18px; }
+				
+				/*** MIXINS ***/
+				
+				/*** COMPONENTS: COMMONS ***/
+				main { padding: 1.8em; }
+								/*** VIEWPORT: COMMONS ***/
+								main { display: flex !important; }
+								main { align-items: center; }
+				
+				/*** COMPONENTS: .about ***/
+								/*** VIEWPORT: .about ***/
+								.about,
+								.catalog { width: 50%; }
+								.about { padding: 1em 0; padding-right: 1.5em; }
+				
+				/*** COMPONENTS: .catalog ***/
+				.catalog { padding: 1.8em; }
+				.catalog figure { margin: 1.8em 0; }
+								/*** VIEWPORT: .catalog ***/
+}			
+/*** END MEDIA QUERIES ***/
+
+/*** CSS TOOLS ***/
+.CSSbold { font-weight: bold; }
+
+.CSSmidwrap {
+				width: 100%; max-width: 60em;
+				display: block; margin: auto;
+				
+//				background-color: green;
+}
+
+.CSSspacer { flex: 1; }
+.CSSunderline { text-decoration: underline; }
+/*** END CSS TOOLS ***/
+
+/*** SANDBOX ***/
+.catalog header nav { display: none; }
+/*** END SANDBOX ***/
