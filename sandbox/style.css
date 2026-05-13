@@ -47,7 +47,7 @@ body,
 /*** END FONTS ***/
 
 /*** MEDIA ***/
-.about-nav .u-btn { background-image: url("../assets/drcflag2.png"); }
+.about-nav .u-btn { background-image: url("drcflag2.png"); }
 .about-nav .u-btn {
 				background-size: cover;
 }
