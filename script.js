@@ -66,7 +66,7 @@ function setTabloid() {
 				if(vShopCoupon == "") {
 								vShopCouponAlert1 = "** THE COMMUNITY gets free shipping <a href='https://chat.whatsapp.com/DhlDDKqM849BE2AwnhYIge/' class='CSSunderline'>[invite link]</a>";
 				}
-				else if (vShopCoupon == "AAA") {
+				else if (vShopCoupon == "FATSHI") {
 								vShopCouponAlert1 = "<span style='color: green;'>** Coupon code is valid</span>";
 				} else {
 								vShopCouponAlert1 = "<span style='color: red;'>** Coupon doesn't exist</span>";
