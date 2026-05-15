@@ -64,7 +64,7 @@ function setTabloid() {
 				tagShopText.innerHTML = vShopText4Kits + " + " + vShopText4Delivery + " = " + vShopText4Total;
 				
 				if(vShopCoupon == "") {
-								vShopCouponAlert1 = "** THE COMMUNITY gets free shipping";
+								vShopCouponAlert1 = "** THE COMMUNITY gets free shipping <a href='https://chat.whatsapp.com/DhlDDKqM849BE2AwnhYIge/' class='CSSunderline'>[invite link]</a>";
 				}
 				else if (vShopCoupon == "AAA") {
 								vShopCouponAlert1 = "<span style='color: green;'>** Coupon code is valid</span>";
