@@ -40,7 +40,7 @@ function setTabloid() {
 				
 				if (vShopDelivery == 0) {
 								vShopDeliveryTotal = 0;
-								vShopText4Delivery = "Free Shipping";
+								vShopText4Delivery = "Free Pickup";
 				}
 				else if (vShopDelivery == 100) {
 								if(vShopCoupon == "AAA") {
