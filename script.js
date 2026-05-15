@@ -43,9 +43,9 @@ function setTabloid() {
 								vShopText4Delivery = "Free Pickup";
 				}
 				else if (vShopDelivery == 100) {
-								if(vShopCoupon == "AAA") {
+								if(vShopCoupon == "FATSHI") {
 												vShopDeliveryTotal = 0;
-												vShopText4Delivery = "Free Shipping";
+												vShopText4Delivery = "Free Shipping from Coupon";
 								}
 								else {
 												if(vShopKits == 0) { vShopText4Delivery = "R___ Shipping"; }
