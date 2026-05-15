@@ -81,7 +81,7 @@
       														<header>
       																		<hgroup>
       																						<span>Invest in KinHarvest</span>
-      																						<h3>Become a Committee Board</h3>
+      																						<h3>Sit on the Committee Board</h3>
       																						<span>&nbsp;&nbsp;<a href="" class="CSSunderline" download>[download pdf]</a></span>
       																		</hgroup>
       														</header>
@@ -164,7 +164,7 @@
     																												<h5>Select Items</h5>
     																												<div>
     																																<span>Number of Kits:</span>
-    																																<input type="number" class="js-shopKits" onkeyup="watchShopKits(this)" />
+    																																<input type="number" class="js-shopKits" onkeyup="watchShopKits(this)" required />
     																																<!--
     																																<span>**2kits per delivery pack</span>
     																																-->
@@ -174,9 +174,12 @@
     																												</div><div class="is-wide">
     																																<span>Select Seeds Sample:</span>
     																																<p>
-    																																				<input type="checkbox" id="SeedsCucumber" />Cucumber
-    																																				<input type="checkbox" id="SeedsBanana" />Banana
-    																																				<input type="checkbox" id="SeedsAmaranth" name="seeds" />Amaranth
+    																																				<input type="checkbox" id="rdb4basil" /><label for="rdb4basil">Basil (Basilic)</label>
+    																																				<input type="checkbox" id="rdb4chives" /><label for="rdb4chives">Chives (Ciboulette)</label>
+    																																				<input type="checkbox" id="rdb4parsley" name="seeds" /><label for="rdb4parsley">Parsley (Persil)</label>
+    																																				<input type="checkbox" id="rdb4cilantro" name="seeds" /><label for="rdb4cilantro">Cilantro/Coriander (Coriandre)</label>
+    																																				<input type="checkbox" id="rdb4mustard" name="seeds" /><label for="rdb4mustard">Mustard (Moutarde)</label>
+    																																				<input type="checkbox" id="rdb4thyme" name="seeds" /><label for="rdb4thyme">Thyme (Thym)</label>
     																																</p>
     																												</div>
     																								</fieldset>
@@ -243,18 +246,18 @@
     																												<h5>Confirm the Order</h5>
     																												<div>
     																																<span>Enter your contact number:</span>
-    																																<input type="phone" />
+    																																<input type="tel" required />
     																												</div><div>
     																																<span>&nbsp;<br />&nbsp;</span>
     																																<p class="CSStooltip">**contact & payment reference must match</p>
     																												</div>
     																												<div class="is-wide">
     																																<span>Upload your Order Request/Invoice:</span>
-    																																<input type="file" />
+    																																<input type="file" required />
     																												</div>
     																												<div class="is-wide">
-    																																<span>Upload the Proof of Payment(s):</span>
-    																																<input type="file" />
+    																																<span>Upload the Proof(s) of Payment(s):</span>
+    																																<input type="file" multiple required />
     																												</div>
     																								</fieldset>
     																												
