@@ -18,6 +18,10 @@ form input[type="radio"] {
 .about-founder img:nth-child(2) { position: relative; z-index: 18; }
 .about-founder p { position: relative; z-index: 28; }
 
+/*
+.catalog footer > a { position: relative; z-index: 100; }
+*/
+
 .m-details { position: relative; z-index: 38; }
 
 .shop { position: relative; z-index: 100; }
@@ -205,12 +209,15 @@ h4, h5,
 				}
 								.catalog figure img:nth-child(2) {
 												position: absolute; top: 0; left: 0;
-												width: 18%;
+												width: 18%; width: 15%;
 												aspect-ratio: 1/1;
 												border-radius: 50%;
 												
 												background-color: #eee;
 								}
+								.catalog figure:hover img:nth-child(2),
+								.catalog figure:focus img:nth-child(2),
+								.catalog figure:active img:nth-child(2) { // width: 24%; }
 
 				.catalog footer {
 								position: relative; left: 50%;
