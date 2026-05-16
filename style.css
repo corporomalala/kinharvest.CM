@@ -40,7 +40,8 @@ form input[type="radio"] {
 .shop h3,
 .shop form fieldset input[type="checkbox"]:checked + label { color: #4A604D; }
 /* // #4A604D // #AD8774 // #D4A284 // #7C4444 */
-/* // #c97952 */
+/* // #c97952 // #91770D #410D18 #c3d4d1 #b8bda7 */
+/* #4A604D #b8bda7 #5c4A3b */
 
 html, body,
 .shop aside,
@@ -189,6 +190,11 @@ h4, h5,
 
 				.about-nav { margin: 1em 0; }
 				.about-nav > label { margin-left: .5em; }
+				.about-nav > img {
+								position: relative; top: .5em;
+								width: auto; height: 1.8em;
+							//	background-color: green;
+				}
 
 				/*** .catalog ***/
 				.catalog aside { position: relative; }
