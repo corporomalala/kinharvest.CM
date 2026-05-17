@@ -37,8 +37,8 @@ form input[type="radio"] {
 #rdb4shop1:checked ~ main .shop header nav .shop-button:nth-child(1),
 #rdb4shop2:checked ~ main .shop header nav .shop-button:nth-child(2),
 #rdb4shop3:checked ~ main .shop header nav .shop-button:nth-child(3) { background-color: #4A604D; }
-.about .u-btn,
-.about .u-cta { background-color: #4A604D !important; }
+.about-nav .u-btn,
+.about-nav .u-cta { background-color: #4A604D !important; }
 .about h1,
 .about-header span,
 .shop h3,
@@ -47,19 +47,24 @@ form input[type="radio"] {
 /* // #c97952 // #91770D #410D18 #c3d4d1 #b8bda7 */
 /* #4A604D #b8bda7 #5c4A3b */
 
+/* .shop header > span { color: red; } */
+
 html, body,
 .shop aside,
 .shop-label,
 .m-details label { background-color: #eee; }
+/*
 a.u-btn:hover,
 a.u-btn:active,
 a.u-btn:focus,
 a.u-cta:hover,
 a.u-cta:active,
 a.u-cta:focus,
+*/
 #rdb4shop1:checked ~ main .shop header nav .shop-button:nth-child(1) span,
 #rdb4shop2:checked ~ main .shop header nav .shop-button:nth-child(2) span,
 #rdb4shop3:checked ~ main .shop header nav .shop-button:nth-child(3) span { background-color: #eee !important; color: black; }
+.about-community figure span,
 .catalog header, .catalog header *,
 .shop header nav span,
 .u-btn, .u-cta,
@@ -67,6 +72,8 @@ a.u-cta:focus,
 #rdb4shop2:checked ~ main .shop header nav .shop-button:nth-child(2),
 #rdb4shop3:checked ~ main .shop header nav .shop-button:nth-child(3) { color: #eee; }
 
+				.about-community figure span,
+.about-community .u-cta,
 .catalog .u-btn,
 .catalog .u-cta,
 .m-details { background-color: #AAA; }
@@ -84,13 +91,14 @@ a.u-cta:focus,
 .about-header h1,
 .shop form fieldset h4 { font-size: 1.18em; }
 .about-header a,
-.CSStooltip { font-size: .75em; }
+.CSStooltip { font-size: .75em !important; }
 
 h1, h2, h3,
 h1 *, h2 *, h3 *,
 h4, h5,
 .shop form fieldset input[type="checkbox"]:checked + label,
 .shop form fieldset input[type="submit"] { font-weight: bold; }
+.about-community figure span,
 .catalog footer,
 .footer,
 .shop header nav,
@@ -156,7 +164,9 @@ h4, h5,
 				main { //position: relative; }
 
 				.about-community img,
+								.about-community figure span,
 				.about-founder img:nth-child(1),
+				.catalog figure img:nth-child(2),
 				.shop header nav span { border-radius: 50%; }
 				.u-btn, .u-cta { border-radius: 4em; }
 				.catalog aside,
@@ -174,11 +184,13 @@ h4, h5,
 
 				.about-founder div { width: 80%; }
 				.about-community figure img,
+								.about-community figure span,
 				.about-founder figure { width: 18%; }
 								.about-founder figure img:nth-child(2) { width: 150%; }
 
 				.about-founder figure { position: relative; }
 				.about-community img,
+								.about-community figure span,
 				.about-founder img:nth-child(1) { aspect-ratio: 1/1; }
 				.about-founder img:nth-child(2) {
 								position: absolute; bottom: -1em; right: 0;
@@ -187,6 +199,7 @@ h4, h5,
 				.about-founder p { margin-top: 1em; }
 
 				.about-community img { margin-right: 1em; }
+				.about-community a { position: relative; left: 65%; }
 
 				.about-header { position: relative; }
 				.about-header h2 { margin: 1em 0; }
@@ -195,7 +208,7 @@ h4, h5,
 				.about-nav { margin: 1em 0; }
 				.about-nav > label { margin-left: .5em; }
 				.about-nav > img {
-								position: relative; top: .5em;
+								position: relative; top: .75em;
 								width: auto; height: 1.8em;
 							//	background-color: green;
 				}
@@ -211,7 +224,6 @@ h4, h5,
 												position: absolute; top: 0; left: 0;
 												width: 18%; width: 15%;
 												aspect-ratio: 1/1;
-												border-radius: 50%;
 												
 												background-color: #eee;
 								}
@@ -361,7 +373,8 @@ h4, h5,
 								.shop form fieldset input[type="submit"],
 								.shop form footer { margin: 1.8em 0; }
 								.catalog aside:nth-child(2) { margin-top: 1.8em; }
-								/*** VIEWPORT: .catalog ***/
+								/*** CSS-HACKS: .catalog ***/
+								.catalog figure img:nth-child(2) { width: 18%; }
 				
 				/*** COMPONENTS: .shop ***/
 								/*** VIEWPORT: .shop ***/
@@ -420,6 +433,9 @@ h4, h5,
 //				background-color: green;
 }
 				.shop .CSSmidwrap { //max-width: 50em; }
+
+.CSSnoWrap {
+}
 
 .CSSspacer { flex: 1; }
 .CSSunderline { text-decoration: underline; }
