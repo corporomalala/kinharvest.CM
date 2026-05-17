@@ -75,3 +75,285 @@ function setTabloid() {
 				tagShopCouponAlert1.innerHTML = vShopCouponAlert1;
 }
 /*** END FUNCTIONS ***/
+
+/*** LIBRARIES ***/
+document.querySelector(".js-formProposal").addEventListener("submit", function(e){
+	e.preventDefault();
+	generateInvoice();
+});
+
+async function generateInvoice(){
+
+	const { jsPDF } = window.jspdf;
+	const doc = new jsPDF();
+
+	// =========================================
+	// GET VALUES
+	// =========================================
+
+	const kits =
+		parseInt(document.querySelector(".js-formProposal .js-shopKits").value) || 0;
+
+	const address =
+		document.querySelector(".js-formProposal textarea").value || "Pickup Point";
+
+	const coupon =
+		document.querySelector(".js-formProposal input[type='text']").value || "";
+
+	const isPaxi =
+		document.querySelector(".js-formProposal .js-tagShopDeliveryPaxi").checked;
+
+	const shipping =
+		isPaxi ? 100 : 0;
+
+	// =========================================
+	// SEEDS
+	// =========================================
+
+	let seeds = [];
+
+	if(document.getElementById("rdb4basil").checked)
+		seeds.push("Basil");
+
+	if(document.getElementById("rdb4chives").checked)
+		seeds.push("Chives");
+
+	if(document.getElementById("rdb4parsley").checked)
+		seeds.push("Parsley");
+
+	if(document.getElementById("rdb4cilantro").checked)
+		seeds.push("Cilantro/Coriander");
+
+	if(document.getElementById("rdb4mustard").checked)
+		seeds.push("Mustard");
+
+	if(document.getElementById("rdb4thyme").checked)
+		seeds.push("Thyme");
+
+	// =========================================
+	// CALCULATIONS
+	// =========================================
+
+	const kitPrice = 400;
+
+	let subtotal =
+		kits * kitPrice;
+
+	let shippingCost =
+		shipping; shippingCost = vShopDeliveryTotal;
+
+	// FREE SHIPPING
+	if(coupon.toUpperCase() === "FATSHI"){
+		shippingCost = 0;
+	}
+
+	const total =
+		subtotal + shippingCost;
+
+	// =========================================
+	// COLORS
+	// =========================================
+
+	const green = [74,95,76];
+	const beige = [244,241,234];
+
+	// =========================================
+	// HEADER
+	// =========================================
+
+	doc.setFillColor(...green);
+	doc.rect(0,0,210,45,"F");
+
+	doc.setTextColor(255,255,255);
+
+	doc.setFontSize(28);
+	doc.text("KINHARVEST",20,22);
+
+	doc.setFontSize(12);
+	doc.text("R400 'Seed to Harvest' Planter Kit with Pot and Accessories (+ sample seeds)",20,32);
+
+	// =========================================
+	// RESET COLOR
+	// =========================================
+
+	doc.setTextColor(0,0,0);
+
+	// =========================================
+	// TITLE
+	// =========================================
+
+	doc.setFontSize(18);
+	doc.text("INVOICE",20,60);
+
+	doc.setFontSize(11);
+
+	doc.text(
+		`Date: ${new Date().toLocaleDateString()}`,
+		20,
+		72
+	);
+
+	// =========================================
+	// CUSTOMER DETAILS
+	// =========================================
+
+	doc.setFontSize(13);
+
+	doc.text(
+		`Number of Kits: ${kits}`,
+		20,
+		90
+	);
+
+	doc.text(
+		`Seed Samples: ${seeds.join(", ") || "None"}`,
+		20,
+		100
+	);
+
+	doc.text(
+		`Delivery Method: ${isPaxi ? "Door Delivery" : "Pickup Point"}`,
+		20,
+		110
+	);
+
+	// =========================================
+	// ADDRESS BOX
+	// =========================================
+
+	doc.text(
+		"Delivery Address:",
+		20,
+		125
+	);
+
+	doc.setFillColor(...beige);
+
+	doc.roundedRect(
+		20,
+		130,
+		170,
+		25,
+		4,
+		4,
+		"F"
+	);
+
+	doc.setFontSize(11);
+
+	doc.text(
+		address,
+		25,
+		142
+	);
+
+	// =========================================
+	// TABLE HEADER
+	// =========================================
+
+	doc.setFillColor(...green);
+
+	doc.rect(
+		20,
+		170,
+		170,
+		10,
+		"F"
+	);
+
+	doc.setTextColor(255,255,255);
+
+	doc.text("Description",25,177);
+	doc.text("Amount",160,177);
+
+	// =========================================
+	// RESET
+	// =========================================
+
+	doc.setTextColor(0,0,0);
+
+	// =========================================
+	// TABLE ROWS
+	// =========================================
+
+	let y = 192;
+
+	doc.text(
+		`${kits} × Planter Kit(s)`,
+		25,
+		y
+	);
+
+	doc.text(
+		`R${subtotal.toFixed(2)}`,
+		160,
+		y
+	);
+
+	y += 12;
+
+	doc.text(
+		"Shipping",
+		25,
+		y
+	);
+
+	doc.text(
+		`R${shippingCost.toFixed(2)}`,
+		160,
+		y
+	);
+
+	y += 18;
+
+	// =========================================
+	// TOTAL BOX
+	// =========================================
+
+	doc.setFillColor(235,235,235);
+
+	doc.roundedRect(
+		20,
+		y,
+		170,
+		18,
+		4,
+		4,
+		"F"
+	);
+
+	doc.setFontSize(16);
+
+	doc.text(
+		`TOTAL: R${total.toFixed(2)}`,
+		25,
+		y + 12
+	);
+
+	// =========================================
+	// FOOTER
+	// =========================================
+
+	doc.setFontSize(11);
+
+	doc.text(
+		"Thank you for supporting KINHARVEST",
+		20,
+		270
+	);
+
+	doc.text(
+		"Supporting our people. Growing our future.",
+		20,
+		278
+	);
+
+	// =========================================
+	// SAVE
+	// =========================================
+
+	doc.save(
+		`KINHARVEST-INVOICE.pdf`
+	);
+}
+/*** END LIBRARIES ***/
