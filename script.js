@@ -126,6 +126,9 @@ async function generateInvoice(){
 
 	if(document.getElementById("rdb4mustard").checked)
 		seeds.push("Mustard");
+				
+	if(document.getElementById("rdb4cintronella").checked)
+		seeds.push("Cintronella/Lemongrass Tea");
 
 	if(document.getElementById("rdb4thyme").checked)
 		seeds.push("Thyme");
