@@ -17,7 +17,8 @@ function injectIBRIAD() {
 
     const IBRInewtag1 = document.createElement("img");
     IBRInewtag1.id = "IBRInewtag1";
-    IBRInewtag1.src = "/storage/emulated/0/CODE/[Ads for IBRI]/inbuiltweb.png";
+//    IBRInewtag1.src = "/storage/emulated/0/CODE/[Ads for IBRI]/inbuiltweb.png";
+    IBRInewtag1.src = "inbuiltweb.png";
     IBRInewtag1.alt = "INBUILTWEB"
     IBRInewad.appendChild(IBRInewtag1);
     
@@ -53,5 +54,3 @@ function injectIBRIAD() {
     document.querySelector(".IBRIADhtml body").style = "padding-bottom: 4em !important;";
 }
 /*** END FUNCTIONS ***/
-
-
