@@ -36,7 +36,8 @@ form input[type="radio"] {
 .shop header nav span,
 #rdb4shop1:checked ~ main .shop header nav .shop-button:nth-child(1),
 #rdb4shop2:checked ~ main .shop header nav .shop-button:nth-child(2),
-#rdb4shop3:checked ~ main .shop header nav .shop-button:nth-child(3) { background-color: #4A604D; }
+#rdb4shop3:checked ~ main .shop header nav .shop-button:nth-child(3),
+#rdb4shop4:checked ~ main .shop header nav .shop-button:nth-child(4) { background-color: #4A604D; }
 .about-nav .u-btn,
 .about-nav .u-cta { background-color: #4A604D !important; }
 .about h1,
@@ -63,14 +64,16 @@ a.u-cta:focus,
 */
 #rdb4shop1:checked ~ main .shop header nav .shop-button:nth-child(1) span,
 #rdb4shop2:checked ~ main .shop header nav .shop-button:nth-child(2) span,
-#rdb4shop3:checked ~ main .shop header nav .shop-button:nth-child(3) span { background-color: #eee !important; color: black; }
+#rdb4shop3:checked ~ main .shop header nav .shop-button:nth-child(3) span,
+#rdb4shop4:checked ~ main .shop header nav .shop-button:nth-child(4) span { background-color: #eee !important; color: black; }
 .about-community figure span,
 .catalog header, .catalog header *,
 .shop header nav span,
 .u-btn, .u-cta,
 #rdb4shop1:checked ~ main .shop header nav .shop-button:nth-child(1),
 #rdb4shop2:checked ~ main .shop header nav .shop-button:nth-child(2),
-#rdb4shop3:checked ~ main .shop header nav .shop-button:nth-child(3) { color: #eee; }
+#rdb4shop3:checked ~ main .shop header nav .shop-button:nth-child(3),
+#rdb4shop4:checked ~ main .shop header nav .shop-button:nth-child(4) { color: #eee; }
 
 				.about-community figure span,
 .about-community .u-cta,
@@ -252,7 +255,7 @@ h4, h5,
 				}
 
 				/*** .shop ***/
-				.shop header nav { display: flex; }
+				.shop header nav { // display: flex; }
 				.shop header nav .shop-button { flex: 1; }
 
 				.shop {
@@ -316,7 +319,8 @@ h4, h5,
 .shop article form { display: none; }
 #rdb4shop1:checked ~ main .shop article form:nth-child(1),
 #rdb4shop2:checked ~ main .shop article form:nth-child(2),
-#rdb4shop3:checked ~ main .shop article form:nth-child(3) { display: block; }
+#rdb4shop3:checked ~ main .shop article form:nth-child(3),
+#rdb4shop4:checked ~ main .shop article form:nth-child(4) { display: block; }
 /*** END INTERACTIVITY ***/
 
 /*** MEDIA QUERIES ***/
@@ -344,6 +348,13 @@ h4, h5,
 				.catalog footer,
 								/*** VIEWPORT: .catalog ***/
 								.catalog { // min-height: 80vh; }
+				
+				/*** COMPONENTS: .shop ***/
+								/*** VIEWPORT: .shop ***/
+								.shop header nav label {
+												width: 48%;
+												display: inline-block;
+								}
 }
 @media screen and (min-width: 50em) {
 				/*** FONTS ***/
@@ -378,6 +389,7 @@ h4, h5,
 				
 				/*** COMPONENTS: .shop ***/
 								/*** VIEWPORT: .shop ***/
+								.shop header nav { display: flex; }
 								.shop header nav br:last-child { //display: none; }
 }			
 /*** END MEDIA QUERIES ***/
@@ -448,3 +460,8 @@ h4, h5,
 
 .catalog aside * { //visibility: hidden; }
 /*** END SANDBOX ***/
+
+/*** CSS-HACKS ***/
+.shop header nav { display: flex !important; }
+.shop header nav label:nth-child(3) { display: none !important; }
+/*** END CSS-HACKS ***/
