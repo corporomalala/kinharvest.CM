@@ -5,13 +5,76 @@ var tagShopCouponAlert1 = document.querySelector(".js-tagShopCouponAlert1"),
 								tagShopCouponAlert2 = document.querySelector(".js-tagShopCouponAlert2"),
 								tagShopText = document.querySelector(".js-tagShopText"),
 								tagShopKits = document.querySelector(".js-tagShopKits");
+
+var tagVerificationSubmit = document.querySelector(".js--formVerification input[type='submit']"),
+								tagVerificationInputs = document.querySelectorAll(".js-formVerification input[type='text'], js-formVerification input[type='tel']",
+								tagVerificationInvoice = document.querySelector('input[type="file"]:not([multiple])'),
+								tagVerificationProofOfPayment = document.querySelector('input[type="file"][multiple]');
  /*** END DATA ***/
   
 /*** EVENTS ***/
-
+document.querySelector(".js-formProposal").addEventListener("submit", function(e){
+				e.preventDefault();
+				generateInvoice();
+});
+document.querySelector(".js-formVerification").addEventListener("submit", function(e){
+				e.preventDefault();
+				sendVerificationRequest();
+});
 /*** END EVENTS ***/
+
+/*** FUNCTIONS ***/
+/*** END FUNCTIONS ***/
   
 /*** FUNCTIONS ***/
+async function sendVerificationRequest() {
+				const submitBtn = tagVerificationSubmit;
+  submitBtn.value = 'Submitting...';
+  submitBtn.disabled = true;
+
+  const formData = new FormData();
+
+//  const inputs = form.querySelectorAll('input[type="text"], input[type="tel"]');
+				const inputs = tagVerificationInputs;
+  const labels = ['name', 'number', 'eft_reference'];
+  inputs.forEach((input, i) => {
+    formData.append(labels[i], input.value);
+  });
+
+  const invoiceFile = tagVerificationInvoice;
+  const proofFiles = tagVericationProofOfPayment;
+
+  if (invoiceFile.files[0]) {
+    formData.append('invoice', invoiceFile.files[0]);
+  }
+
+  Array.from(proofFiles.files).forEach((file, i) => {
+    formData.append(`proof_of_payment_${i + 1}`, file);
+  });
+
+  try {
+    const response = await fetch('https://usebasin.com/f/d64f8f69f986', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData,
+    });
+
+    if (response.ok) {
+//      form.reset();
+    				document.querySelector(".js-formVerification").reset();
+      submitBtn.value = '✔ Order Confirmed';
+      submitBtn.style.background = 'green';
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (error) {
+    submitBtn.value = '✖ Failed. Try Again';
+    submitBtn.style.background = 'red';
+    submitBtn.disabled = false;
+  }
+}
+
+
 setTabloid();
  
 function watchShopCoupon(theTag) {
@@ -77,11 +140,6 @@ function setTabloid() {
 /*** END FUNCTIONS ***/
 
 /*** LIBRARIES ***/
-document.querySelector(".js-formProposal").addEventListener("submit", function(e){
-	e.preventDefault();
-	generateInvoice();
-});
-
 async function generateInvoice(){
 
 	const { jsPDF } = window.jspdf;
