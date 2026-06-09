@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>THE HQ / Loyalty Cards</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background: #f4f1ea;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 40px 20px 60px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .page-title { text-align: center; }
+  .page-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #3a4f3b;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .page-title p {
+    font-size: 11px;
+    color: #a09070;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .section-label {
+    width: 100%;
+    max-width: 380px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a09070;
+    border-bottom: 1px solid #ddd8cc;
+    padding-bottom: 8px;
+  }
+
+  /* CARD */
+  .card {
+    width: 100%;
+    max-width: 380px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(60,70,40,0.10), 0 1px 4px rgba(60,70,40,0.06);
+  }
+
+  .card-top {
+    background: #4a5f4c;
+    padding: 16px 24px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+    font-family: 'Playfair Display', serif;
+    color: #f4f1ea;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  .brand span {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #c8b96e;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+  .reward-badge {
+    background: #c8b96e;
+    color: #3a2e10;
+    border-radius: 50%;
+    width: 52px; height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    line-height: 1.1;
+    flex-shrink: 0;
+  }
+  .reward-badge .amount { font-size: 17px; }
+  .reward-badge .label { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* BODY */
+  .card-body { padding: 20px 24px 18px; }
+
+  /* RULE INSIDE BODY */
+  .card-rule-inline {
+    background: #f4f8f4;
+    border-radius: 9px;
+    padding: 9px 12px;
+    font-size: 10px;
+    color: #4a5f4c;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .card-rule-inline strong { color: #c8b96e; }
+
+  /* MEMBER ROW */
+  .member-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .member-name-block { flex: 1; }
+  .member-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a09070;
+    margin-bottom: 3px;
+  }
+  .member-name-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1.5px solid #ddd8cc;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: #3a4f3b;
+    background: transparent;
+    outline: none;
+    padding-bottom: 5px;
+  }
+  .member-name-input::placeholder { color: #ccc5b5; font-style: italic; }
+  .member-name-input:focus { border-bottom-color: #4a5f4c; }
+
+  .card-number-block {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .card-number-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #b0a888;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .card-number-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: #c8b96e;
+    letter-spacing: 1px;
+  }
+
+  .slots-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a09070;
+    margin-bottom: 10px;
+  }
+
+  /* PHONE SLOTS */
+  .phone-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .phone-slot { display: flex; align-items: center; gap: 8px; }
+  .slot-number {
+    color: #c8b96e;
+    font-size: 9px;
+    font-weight: 600;
+    width: 14px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .slot-input {
+    flex: 1;
+    background: #faf8f4;
+    border: none;
+    border-radius: 7px;
+    padding: 5px 10px;
+    color: #3a4f3b;
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    outline: none;
+    transition: background 0.2s;
+  }
+  .slot-input::placeholder { color: #ccc5b5; font-size: 10px; }
+  .slot-input:focus { background: #fff; }
+  .slot-input.valid   { background: #f4f8f4; color: #3a4f3b; }
+  .slot-input.invalid { background: #fdf4f4; color: #d9534f; }
+
+  .slot-save {
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    border: none;
+    background: #faf8f4;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+    font-size: 14px;
+  }
+  .slot-save:hover:not(:disabled) { background: #fdf6e3; }
+  .slot-save:disabled { opacity: 0.35; cursor: not-allowed; }
+  .slot-save .icon-save { display: inline; }
+  .slot-save .icon-spin { display: none; }
+  .slot-save .icon-done { display: none; }
+  .slot-save.loading .icon-save { display: none; }
+  .slot-save.loading .icon-spin { display: inline; animation: spin 0.7s linear infinite; }
+  .slot-save.loading .icon-done { display: none; }
+  .slot-save.done .icon-save { display: none; }
+  .slot-save.done .icon-spin { display: none; }
+  .slot-save.done .icon-done { display: inline; }
+  .slot-save.done { background: #eaf4eb; }
+
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  /* PROGRESS */
+  .progress-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid #eee8dc;
+  }
+  .progress-text { font-size: 12px; color: #7a7060; }
+  .progress-text strong { color: #4a5f4c; font-size: 15px; }
+  .earned-pill {
+    background: #f4f1ea;
+    color: #7a6830;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: all 0.3s;
+  }
+  .earned-pill.complete { background: #4a5f4c; color: #f4f1ea; }
+
+  .send-verification-btn {
+    width: 100%;
+    background: #4a5f4c;
+    color: #f4f1ea;
+    border: none;
+    border-radius: 10px;
+    padding: 11px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 14px;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .send-verification-btn:hover:not(:disabled) { background: #3a4f3b; }
+  .send-verification-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .send-verification-btn.sent { background: #c8b96e; color: #3a2e10; pointer-events: none; }
+
+  /* STATUS LEGEND */
+  .status-legend {
+    display: flex;
+    gap: 20px;
+    padding: 11px 24px;
+    border-top: 1px solid #eee8dc;
+    background: #faf8f4;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 9px; color: #a09070; letter-spacing: 1px;
+  }
+  .legend-icon { font-size: 14px; line-height: 1; }
+
+  /* ===================== */
+  /* PREVIOUS CARDS GRID   */
+  /* ===================== */
+  .prev-section {
+    width: 100%;
+    max-width: 380px;
+  }
+  .prev-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .mini-card {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 14px rgba(60,70,40,0.12);
+    aspect-ratio: 1.75 / 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #fff;
+    min-height: 110px;
+  }
+
+  .mini-card-top {
+    background: #4a5f4c;
+    padding: 7px 10px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .mini-brand {
+    font-family: 'Playfair Display', serif;
+    color: #f4f1ea;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+  .mini-card-num {
+    font-size: 8px;
+    color: #c8b96e;
+    letter-spacing: 1px;
+  }
+
+  .mini-card-body {
+    flex: 1;
+    padding: 6px 10px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .mini-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    color: #3a4f3b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mini-dots {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+    margin: 4px 0;
+  }
+  .mini-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: 1px solid #e0dbd0;
+    flex-shrink: 0;
+  }
+  .mini-dot.v { background: #c8b96e; border-color: #c8b96e; }
+  .mini-dot.p { background: #fdf6e3; border-color: #e0c97a; }
+
+  .mini-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mini-earned {
+    font-size: 10px;
+    font-weight: 600;
+    color: #4a5f4c;
+  }
+  .mini-status {
+    font-size: 8px;
+    padding: 2px 7px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+  }
+  .mini-status.paid { background: #eaf4eb; color: #3a7a3c; border: 1px solid #b5d9b6; }
+  .mini-status.pending { background: #fdf6e3; color: #9a7820; border: 1px solid #e0c97a; }
+
+  /* Decorative leaf watermark */
+  .mini-card-watermark {
+    position: absolute;
+    bottom: 4px; right: 8px;
+    font-size: 28px;
+    opacity: 0.07;
+    pointer-events: none;
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  <h1>Welcome to "THE HQ"</h1>
+				<p>[Tool in test mode. Site in construction.]</p>
+</div>
+
+<div class="card">
+  <div class="card-top">
+    <div class="brand">
+      KINHARVEST
+      <span>Community Referral</span>
+    </div>
+    <div class="reward-badge">
+      <span class="amount">R10</span>
+      <span class="label">card</span>
+    </div>
+  </div>
+
+  <div class="card-body">
+
+    <!-- RULE INLINE -->
+    <div class="card-rule-inline">
+      Add <strong>10 Congolese members</strong> to the KinHarvest WhatsApp group &nbsp;→&nbsp; earn <strong>R10 per card</strong> 🌿
+    </div>
+
+    <!-- MEMBER + CARD NUMBER ROW -->
+    <div class="member-row">
+      <div class="member-name-block">
+        <div class="member-label">Member Name</div>
+        <input class="member-name-input" id="memberName" placeholder="Enter your name…" />
+      </div>
+      <div class="card-number-block">
+        <span class="card-number-label">Card</span>
+        <span class="card-number-value">#004</span>
+      </div>
+    </div>
+
+    <div class="slots-label">Numbers Added</div>
+    <div class="phone-grid" id="phoneGrid"></div>
+
+    <div class="progress-row">
+      <div class="progress-text">
+        <strong id="countDisplay">0</strong> / 10 verified
+      </div>
+      <div class="earned-pill" id="earnedDisplay">R0 earned</div>
+    </div>
+
+    <button class="send-verification-btn" id="sendBtn" disabled>
+      🌿 Send for Verification
+    </button>
+  </div>
+
+  <div class="status-legend">
+    <div class="legend-item"><span class="legend-icon">⏳</span> Awaiting Verification</div>
+    <div class="legend-item"><span class="legend-icon">🪙</span> Verified by Admin</div>
+  </div>
+</div>
+
+<!-- PREVIOUS CARDS -->
+<div class="section-label" style="margin-top:8px;">Previous Cards</div>
+
+<div class="prev-section">
+  <div class="prev-cards-grid" id="prevCardsGrid"></div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'kinharvest_card_003';
+  const grid = document.getElementById('phoneGrid');
+  const countDisplay = document.getElementById('countDisplay');
+  const earnedDisplay = document.getElementById('earnedDisplay');
+  const sendBtn = document.getElementById('sendBtn');
+  const memberNameInput = document.getElementById('memberName');
+
+  const inputs = [];
+  const saveBtns = [];
+  let autosaveTimers = [];
+
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  if (saved.memberName) memberNameInput.value = saved.memberName;
+
+  memberNameInput.addEventListener('input', () => {
+    clearTimeout(window._nameTimer);
+    window._nameTimer = setTimeout(doSave, 3000);
+  });
+
+  // SA phone validation
+  function validatePhone(val) {
+    const clean = val.replace(/\s+/g, '');
+    // +27 followed by 9 digits
+    if (/^\+27\d{9}$/.test(clean)) return 'valid';
+    // 0027 followed by 9 digits
+    if (/^0027\d{9}$/.test(clean)) return 'valid';
+    // 0 followed by 9 digits (10 total)
+    if (/^0\d{9}$/.test(clean)) return 'valid';
+    // has enough chars but doesn't match = invalid
+    if (clean.length >= 10) return 'invalid';
+    return 'empty';
+  }
+
+  for (let i = 0; i < 10; i++) {
+    const slot = document.createElement('div');
+    slot.className = 'phone-slot';
+
+    const num = document.createElement('div');
+    num.className = 'slot-number';
+    num.textContent = i + 1;
+
+    const input = document.createElement('input');
+    input.type = 'tel';
+    input.className = 'slot-input';
+    input.placeholder = '+27 __ ___ ____';
+    input.maxLength = 16;
+    if (saved.numbers && saved.numbers[i]) {
+      input.value = saved.numbers[i];
+      const state = validatePhone(saved.numbers[i]);
+      if (state === 'valid') input.classList.add('valid');
+    }
+
+    const saveBtn = document.createElement('button');
+    saveBtn.className = 'slot-save';
+    saveBtn.title = 'Save number';
+    saveBtn.innerHTML = `
+      <span class="icon-save">💾</span>
+      <span class="icon-spin">⟳</span>
+      <span class="icon-done">✔</span>
+    `;
+    saveBtn.disabled = true;
+
+    if (saved.numbers && saved.numbers[i] && validatePhone(saved.numbers[i]) === 'valid') {
+      saveBtn.classList.add('done');
+      saveBtn.disabled = false;
+    }
+
+    input.addEventListener('input', () => {
+      const state = validatePhone(input.value);
+      input.classList.remove('valid', 'invalid');
+      if (state === 'valid') {
+        input.classList.add('valid');
+        saveBtn.disabled = false;
+      } else if (state === 'invalid') {
+        input.classList.add('invalid');
+        saveBtn.disabled = true;
+      } else {
+        saveBtn.disabled = true;
+      }
+      // Reset save btn on edit
+      saveBtn.classList.remove('done', 'loading');
+
+      // Autosave per slot after 3s
+      clearTimeout(autosaveTimers[i]);
+      if (state === 'valid') {
+        autosaveTimers[i] = setTimeout(() => {
+          doSave();
+        }, 3000);
+      }
+
+      updateSendBtn();
+    });
+
+    saveBtn.addEventListener('click', () => {
+      if (validatePhone(input.value) !== 'valid') return;
+      saveBtn.classList.remove('done');
+      saveBtn.classList.add('loading');
+      saveBtn.disabled = true;
+      setTimeout(() => {
+        saveBtn.classList.remove('loading');
+        saveBtn.classList.add('done');
+        saveBtn.disabled = false;
+        doSave();
+      }, 2000);
+    });
+
+    inputs.push(input);
+    saveBtns.push(saveBtn);
+    autosaveTimers.push(null);
+
+    slot.appendChild(num);
+    slot.appendChild(input);
+    slot.appendChild(saveBtn);
+    grid.appendChild(slot);
+  }
+
+  updateSendBtn();
+
+  function doSave() {
+    const data = {
+      memberName: memberNameInput.value,
+      numbers: inputs.map(inp => inp.value)
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  function updateSendBtn() {
+    const anyValid = inputs.some(inp => validatePhone(inp.value) === 'valid');
+    sendBtn.disabled = !anyValid;
+  }
+
+  sendBtn.addEventListener('click', () => {
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = '⏳ Sending…';
+    setTimeout(() => {
+      sendBtn.classList.add('sent');
+      sendBtn.innerHTML = '✓ Sent for Verification';
+    }, 1400);
+  });
+
+  // =====================
+  // PREVIOUS MINI CARDS
+  // =====================
+  const prevCards = [
+    { name: 'Mama Cécile', num: '#001', verified: 10, total: 10, earned: 'R10', status: 'paid' },
+    { name: 'Didier M.',   num: '#002', verified: 7,  total: 10, earned: 'R7',  status: 'pending' },
+    { name: 'Grace K.',    num: '#003', verified: 4,  total: 10, earned: 'R4',  status: 'pending' },
+  ];
+
+  const prevGrid = document.getElementById('prevCardsGrid');
+
+  prevCards.forEach(card => {
+    const mc = document.createElement('div');
+    mc.className = 'mini-card';
+
+    const top = document.createElement('div');
+    top.className = 'mini-card-top';
+    top.innerHTML = `<span class="mini-brand">KINHARVEST</span><span class="mini-card-num">${card.num}</span>`;
+
+    const body = document.createElement('div');
+    body.className = 'mini-card-body';
+
+    const name = document.createElement('div');
+    name.className = 'mini-card-name';
+    name.textContent = card.name;
+
+    const dotsRow = document.createElement('div');
+    dotsRow.className = 'mini-dots';
+    for (let i = 0; i < card.total; i++) {
+      const d = document.createElement('div');
+      d.className = 'mini-dot ' + (i < card.verified ? 'v' : 'p');
+      dotsRow.appendChild(d);
+    }
+
+    const footer = document.createElement('div');
+    footer.className = 'mini-card-footer';
+    footer.innerHTML = `
+      <span class="mini-earned">${card.earned} earned</span>
+      <span class="mini-status ${card.status}">${card.status === 'paid' ? 'Paid ✓' : 'Pending'}</span>
+    `;
+
+    const watermark = document.createElement('div');
+    watermark.className = 'mini-card-watermark';
+    watermark.textContent = '🌿';
+
+    body.appendChild(name);
+    body.appendChild(dotsRow);
+    body.appendChild(footer);
+    mc.appendChild(top);
+    mc.appendChild(body);
+    mc.appendChild(watermark);
+    prevGrid.appendChild(mc);
+  });
+</script>
+
+</body>
+</html>
