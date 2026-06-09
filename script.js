@@ -6,8 +6,8 @@ var tagShopCouponAlert1 = document.querySelector(".js-tagShopCouponAlert1"),
 								tagShopText = document.querySelector(".js-tagShopText"),
 								tagShopKits = document.querySelector(".js-tagShopKits");
 
-var tagVerificationSubmit = document.querySelector(".js--formVerification input[type='submit']"),
-								tagVerificationInputs = document.querySelectorAll(".js-formVerification input[type='text'], js-formVerification input[type='tel']",
+var tagVerificationSubmit = document.querySelector(".js-formVerification input[type='submit']"),
+								tagVerificationInputs = document.querySelectorAll(".js-formVerification input[type='text'], js-formVerification input[type='tel']"),
 								tagVerificationInvoice = document.querySelector('input[type="file"]:not([multiple])'),
 								tagVerificationProofOfPayment = document.querySelector('input[type="file"][multiple]');
  /*** END DATA ***/
@@ -17,16 +17,39 @@ document.querySelector(".js-formProposal").addEventListener("submit", function(e
 				e.preventDefault();
 				generateInvoice();
 });
+/*
 document.querySelector(".js-formVerification").addEventListener("submit", function(e){
 				e.preventDefault();
 				sendVerificationRequest();
 });
+*/
 /*** END EVENTS ***/
 
 /*** FUNCTIONS ***/
 /*** END FUNCTIONS ***/
   
 /*** FUNCTIONS ***/
+const tagVerificationForm = document.querySelector(".js-formVerification4");
+ tagVerificationForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData(tagVerificationForm);
+  fetch("https://usebasin.com/f/d64f8f69f986", {
+   method: "POST",
+   headers: {
+    "Accept": "application/json",
+   },
+   body: formData,
+  })
+  .then((response) => {
+   if (response.status === 200) {
+    console.log("success");
+   } else {
+    console.log("fail");
+   }
+  })
+  .catch((error) => console.log(error));
+ });
+ 
 async function sendVerificationRequest() {
 				const submitBtn = tagVerificationSubmit;
   submitBtn.value = 'Submitting...';
