@@ -443,7 +443,7 @@
   </div>
   <div class="card-top">
     <div class="brand">
-      <span> Add <strong>8 Congolese</strong> to the community's advertising group on whatsapp &nbsp;<br />→&nbsp; earn <strong>R10 per card</strong> 🌿</span>
+      <span> Add <strong>8 Congolese</strong> to the community's advertising group on whatsapp &nbsp;→&nbsp; earn <strong>R10 per card</strong> 🌿</span>
     </div>
   </div>
 
@@ -478,15 +478,8 @@
       🌿 Send for Verification
     </button>
   </div>
-
-  <!--<div class="status-legend">
-    <div class="legend-item"><span class="legend-icon">⏳</span> Awaiting Verification</div>
-    <div class="legend-item"><span class="legend-icon">🪙</span> Verified by Admin</div>
-  </div>-->
+  
 </div>
-
-<!-- PREVIOUS CARDS -->
-  <!--<div class="section-label" style="margin-top:8px;">Previous Cards</div>-->
 
 <div class="prev-section">
   <div class="prev-cards-grid" id="prevCardsGrid"></div>
@@ -713,4 +706,31 @@
     dotsRow.className = 'mini-dots';
     for (let i = 0; i < card.total; i++) {
       const d = document.createElement('div');
-      d.className = 'mini-dot ' + (i < card
+      d.className = 'mini-dot ' + (i < card.verified ? 'v' : 'p');
+      dotsRow.appendChild(d);
+    }
+
+    const footer = document.createElement('div');
+    footer.className = 'mini-card-footer';
+    footer.innerHTML = `
+      <span class="mini-earned">${card.earned} earned</span>
+      <span class="mini-status ${card.status}">${card.status === 'paid' ? 'Paid ✓' : 'Pending'}</span>
+    `;
+
+    const watermark = document.createElement('div');
+    watermark.className = 'mini-card-watermark';
+    watermark.textContent = '🌿';
+
+      
+    body.appendChild(dotsRow);
+    body.appendChild(name);
+    body.appendChild(footer);
+    mc.appendChild(top);
+    mc.appendChild(body);
+    mc.appendChild(watermark);
+    prevGrid.prepend(mc);
+  });
+</script>
+
+</body>
+</html>
