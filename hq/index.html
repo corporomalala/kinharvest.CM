@@ -7,11 +7,19 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; font-size: 1em; box-sizing: border-box; }
+  
+  
+  .reward-badge { background: #c8b96e; }
+  .brand span,
+  .card-number-value,
+  .card-rule-inline strong,
+  .member-label span,
+  .slot-number { color: #c8b96e; }
 
   body {
     min-height: 100vh;
-    background: #f4f1ea;
+    background: #eee;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +59,7 @@
   .card {
     width: 100%;
     max-width: 380px;
-    background: #fff;
+    background: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 24px rgba(60,70,40,0.10), 0 1px 4px rgba(60,70,40,0.06);
@@ -75,13 +83,11 @@
     font-family: 'Inter', sans-serif;
     font-size: 9px;
     letter-spacing: 3px;
-    color: #c8b96e;
     text-transform: uppercase;
     margin-top: 3px;
   }
   .reward-badge {
     padding: 1em;
-    background: #c8b96e;
     color: #3a2e10;
     border-radius: 50%;
     display: flex;
@@ -111,7 +117,6 @@
     text-align: center;
     word-break: break-all;
   }
-  .card-rule-inline strong { color: #c8b96e; }
 
   /* MEMBER ROW */
   .member-row {
@@ -129,7 +134,6 @@
     color: #a09070;
     margin-bottom: 2px;
   }
-  .member-label span { color: #c8b96e; }
   .member-name-input {
     width: 100%;
     border: none;
@@ -159,7 +163,6 @@
   .card-number-value {
     font-size: 13px;
     font-weight: 600;
-    color: #c8b96e;
     letter-spacing: 1px;
   }
 
@@ -187,7 +190,6 @@
     float: left; overflow: hidden;
   }
   .slot-number {
-    color: #c8b96e;
     font-size: 9px;
     font-weight: 600;
     width: 14px;
@@ -259,7 +261,7 @@
     background: transparent;
     outline: none;
   }
-  .progress-text-input::placeholder { color: #ccc5b5; font-style: italic; }
+  .progress-text-input::placeholder { color: #ccc5b5; }
   .earned-pill {
     background: #f4f1ea;
     color: #7a6830;
@@ -413,6 +415,8 @@
     line-height: 1;
   }
   
+  /*** MEDIA-QUERIES ***/
+  
   /*** CUSTOM CSS STYLE ***/
   input { padding: 1em !important; }
   .card-top:nth-child(2) .brand span { color: #f4f1ea; }
@@ -439,7 +443,7 @@
   </div>
   <div class="card-top">
     <div class="brand">
-      <span> Add <strong>8 Congolese members</strong> to the KinHarvest WhatsApp group &nbsp;→&nbsp; earn <strong>R10 per card</strong> 🌿</span>
+      <span> Add <strong>8 Congolese</strong> to the community's advertising group on whatsapp &nbsp;<br />→&nbsp; earn <strong>R10 per card</strong> 🌿</span>
     </div>
   </div>
 
@@ -448,13 +452,13 @@
       <div class="member-name-block">
         <div class="member-label">Mbote, Ndeko! Boni yo, lelo? <br />Card <span>#004</span></div>
         <br />
-        <div class="card-rule-inline" behavior="alternate">
+        <div class="card-rule-inline" behavior="alternate" id="copyLinkBtn2">
           <strong>https://chat.whatsapp.com/HLnpOQVLS8tJyUrz9kOkBF</strong>
         </div>
         <!--<input type="tel" class="member-name-input" id="memberName" placeholder="Enter your phone number…" />-->
       </div>
       <div class="card-number-block">
-        <span class="card-number-label"><br />Copy<br />Link</span>
+        <span class="card-number-label" id="copyLinkBtn"><br />Copy<br />Link</span>
         <!--<span class="card-number-value">#004</span>-->
       </div>
     </div>
@@ -465,7 +469,7 @@
     
     <div class="progress-row">
       <div class="progress-text">
-        Name: <strong id="countDisplay"><input type="text" class="progress-text-input" id="memberName" placeholder="Name & Surname" /></strong>
+        Name: <strong id="countDisplay"><input type="text" class="progress-text-input" id="memberName" /></strong>
       </div>
       <div class="earned-pill" id="earnedDisplay">THE HQ</div>
     </div>
@@ -489,12 +493,16 @@
 </div>
 
 <script>
+  
+  
   const STORAGE_KEY = 'kinharvest_card_004';
   const grid = document.getElementById('phoneGrid');
   const countDisplay = document.getElementById('countDisplay');
   const earnedDisplay = document.getElementById('earnedDisplay');
   const sendBtn = document.getElementById('sendBtn');
   const memberNameInput = document.getElementById('memberName');
+  const copyLinkBtn = document.getElementById('copyLinkBtn');
+  const copyLinkBtn2 = document.getElementById('copyLinkBtn2');
 
   const inputs = [];
   const saveBtns = [];
@@ -510,6 +518,49 @@
     window._nameTimer = setTimeout(doSave, 3000);
   });
   */
+  
+  
+  copyLinkBtn.addEventListener('click', () => {
+    const link = 'https://chat.whatsapp.com/HLnpOQVLS8tJyUrz9kOkBF';
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(link).then(() => {
+        copyLinkBtn.innerHTML = '📋✓<br />Copied!';
+        copyLinkBtn.classList.add('copied');
+        setTimeout(() => { copyLinkBtn.innerHTML = 'Copy<br />Link'; copyLinkBtn.classList.remove('copied'); }, 2500);
+      });
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = link;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      copyLinkBtn.innerHTML = '📋✓<br />Copied!';
+      copyLinkBtn.classList.add('copied');
+      setTimeout(() => { copyLinkBtn.innerHTML = ' Copy<br />Link'; copyLinkBtn.classList.remove('copied'); }, 2500);
+    }
+  });
+  copyLinkBtn2.addEventListener('click', () => {
+    const link = 'https://chat.whatsapp.com/HLnpOQVLS8tJyUrz9kOkBF';
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(link).then(() => {
+        copyLinkBtn.innerHTML = '📋✓<br />Copied!';
+        copyLinkBtn.classList.add('copied');
+        setTimeout(() => { copyLinkBtn.innerHTML = 'Copy<br />Link'; copyLinkBtn.classList.remove('copied'); }, 2500);
+      });
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = link;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      copyLinkBtn.innerHTML = '📋✓<br />Copied!';
+      copyLinkBtn.classList.add('copied');
+      setTimeout(() => { copyLinkBtn.innerHTML = ' Copy<br />Link'; copyLinkBtn.classList.remove('copied'); }, 2500);
+    }
+  });
+
 
   // SA phone validation
   function validatePhone(val) {
@@ -636,9 +687,9 @@
   // PREVIOUS MINI CARDS
   // =====================
   const prevCards = [
-    { name: 'May 1, 2026', num: '#001', verified: 10, total: 8, earned: 'R10', status: 'paid' },
-    { name: 'May 2, 2026',   num: '#002', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
-    { name: 'May 4th, 2026',    num: '#003', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
+    { name: 'Mama Charlene', date: 'May 1, 2026', num: '#001', verified: 10, total: 8, earned: 'R10', status: 'paid' },
+    { name: 'Mama Charlene', date: 'May 2, 2026',   num: '#002', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
+    { name: 'Mama Charlene', date: 'May 4th, 2026',    num: '#003', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
   ];
 
   const prevGrid = document.getElementById('prevCardsGrid');
@@ -649,45 +700,17 @@
 
     const top = document.createElement('div');
     top.className = 'mini-card-top';
-    top.innerHTML = `<span class="mini-brand">Referral Card</span><span class="mini-card-num">${card.num}<br />${card.name}</span>`;
+    top.innerHTML = `<span class="mini-brand">Referral Card</span><span class="mini-card-num">${card.num}<br />${card.date}</span>`;
 
     const body = document.createElement('div');
     body.className = 'mini-card-body';
 
     const name = document.createElement('div');
     name.className = 'mini-card-name';
-    name.textContent = card.name;
-    name.textContent = "Matondi mingi, ndeko!";
+    name.innerHTML = `${card.name}!<br />Matondi mingi, ndeko!<br /><br />`;
 
     const dotsRow = document.createElement('div');
     dotsRow.className = 'mini-dots';
     for (let i = 0; i < card.total; i++) {
       const d = document.createElement('div');
-      d.className = 'mini-dot ' + (i < card.verified ? 'v' : 'p');
-      dotsRow.appendChild(d);
-    }
-
-    const footer = document.createElement('div');
-    footer.className = 'mini-card-footer';
-    footer.innerHTML = `
-      <span class="mini-earned">${card.earned} earned</span>
-      <span class="mini-status ${card.status}">${card.status === 'paid' ? 'Paid ✓' : 'Pending'}</span>
-    `;
-
-    const watermark = document.createElement('div');
-    watermark.className = 'mini-card-watermark';
-    watermark.textContent = '🌿';
-
-      
-    body.appendChild(dotsRow);
-    body.appendChild(name);
-    body.appendChild(footer);
-    mc.appendChild(top);
-    mc.appendChild(body);
-    mc.appendChild(watermark);
-    prevGrid.prepend(mc);
-  });
-</script>
-
-</body>
-</html>
+      d.className = 'mini-dot ' + (i < card
