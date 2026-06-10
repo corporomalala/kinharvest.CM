@@ -52,13 +52,13 @@
     width: 100%;
     max-width: 380px;
     background: #fff;
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 24px rgba(60,70,40,0.10), 0 1px 4px rgba(60,70,40,0.06);
   }
 
   .card-top {
-    background: #4a5f4c;
+    background: #4A5f4D;
     padding: 16px 24px 14px;
     display: flex;
     justify-content: space-between;
@@ -66,8 +66,8 @@
   }
   .brand {
     font-family: 'Playfair Display', serif;
-    color: #f4f1ea;
     font-size: 20px;
+    color: #f4f1ea;
     letter-spacing: 2px;
   }
   .brand span {
@@ -80,10 +80,10 @@
     margin-top: 3px;
   }
   .reward-badge {
+    padding: 1em;
     background: #c8b96e;
     color: #3a2e10;
     border-radius: 50%;
-    width: 52px; height: 52px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,18 +104,19 @@
     border-radius: 9px;
     padding: 9px 12px;
     font-size: 10px;
-    color: #4a5f4c;
+    color: #4A5f4D;
     letter-spacing: 0.5px;
     line-height: 1.6;
     margin-bottom: 16px;
     text-align: center;
+    word-break: break-all;
   }
   .card-rule-inline strong { color: #c8b96e; }
 
   /* MEMBER ROW */
   .member-row {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     gap: 10px;
     margin-bottom: 14px;
@@ -126,8 +127,9 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #a09070;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
+  .member-label span { color: #c8b96e; }
   .member-name-input {
     width: 100%;
     border: none;
@@ -140,7 +142,7 @@
     padding-bottom: 5px;
   }
   .member-name-input::placeholder { color: #ccc5b5; font-style: italic; }
-  .member-name-input:focus { border-bottom-color: #4a5f4c; }
+  .member-name-input:focus { border-bottom-color: #4A5f4D; }
 
   .card-number-block {
     text-align: right;
@@ -171,12 +173,19 @@
 
   /* PHONE SLOTS */
   .phone-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+//    display: flex;
+//    flex-direction: column;
+ //   flex-wrap: wrap;
+//    gap: 6px;
     margin-bottom: 14px;
+    overflow: auto;
   }
-  .phone-slot { display: flex; align-items: center; gap: 8px; }
+  .phone-slot {
+    display: flex; align-items: center; gap: 8px;
+    margin: .4em 0;
+    width: 50%;
+    float: left; overflow: hidden;
+  }
   .slot-number {
     color: #c8b96e;
     font-size: 9px;
@@ -234,11 +243,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 0;
-    border-top: 1px solid #eee8dc;
+//    padding: 12px 0;
+    padding-bottom: 12px;
   }
   .progress-text { font-size: 12px; color: #7a7060; }
-  .progress-text strong { color: #4a5f4c; font-size: 15px; }
+  .progress-text strong { color: #4A5f4D; font-size: 15px; }
+  
+  .progress-text-input {
+    border: none;
+    padding: 0 !important;
+    border-bottom: 1.5px solid #ddd8cc;
+    font-family: 'Playfair Display', serif;
+//    font-size: 17px;
+    color: #3a4f3b;
+    background: transparent;
+    outline: none;
+  }
+  .progress-text-input::placeholder { color: #ccc5b5; font-style: italic; }
   .earned-pill {
     background: #f4f1ea;
     color: #7a6830;
@@ -248,11 +269,11 @@
     border-radius: 20px;
     transition: all 0.3s;
   }
-  .earned-pill.complete { background: #4a5f4c; color: #f4f1ea; }
+  .earned-pill.complete { background: #4A5f4D; color: #f4f1ea; }
 
   .send-verification-btn {
     width: 100%;
-    background: #4a5f4c;
+    background: #4A5f4D;
     color: #f4f1ea;
     border: none;
     border-radius: 10px;
@@ -276,7 +297,6 @@
     display: flex;
     gap: 20px;
     padding: 11px 24px;
-    border-top: 1px solid #eee8dc;
     background: #faf8f4;
   }
   .legend-item {
@@ -290,7 +310,7 @@
   /* ===================== */
   .prev-section {
     width: 100%;
-    max-width: 380px;
+//    max-width: 380px;
   }
   .prev-cards-grid {
     display: grid;
@@ -302,16 +322,14 @@
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 3px 14px rgba(60,70,40,0.12);
-    aspect-ratio: 1.75 / 1;
     display: flex;
     flex-direction: column;
     position: relative;
     background: #fff;
-    min-height: 110px;
   }
 
   .mini-card-top {
-    background: #4a5f4c;
+    background: #4A5f4D;
     padding: 7px 10px 6px;
     display: flex;
     justify-content: space-between;
@@ -328,6 +346,7 @@
     font-size: 8px;
     color: #c8b96e;
     letter-spacing: 1px;
+    text-align: right;
   }
 
   .mini-card-body {
@@ -341,21 +360,24 @@
     font-family: 'Playfair Display', serif;
     font-size: 12px;
     color: #3a4f3b;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+//    white-space: nowrap;
+//    overflow: hidden;
+//    text-overflow: ellipsis;
+    text-align: center;
   }
   .mini-dots {
     display: flex;
-    gap: 3px;
-    flex-wrap: wrap;
-    margin: 4px 0;
+ //   gap: 0;
+//    flex-wrap: wrap;
+    margin: 4px;
+    justify-content: center;
   }
   .mini-dot {
-    width: 8px; height: 8px;
+   margin: 0 .1em;
     border-radius: 50%;
-    border: 1px solid #e0dbd0;
-    flex-shrink: 0;
+ //   border: 1px solid #e0dbd0;
+    width: 4em; aspect-ratio: 1/1;
+ //   flex-shrink: 0;
   }
   .mini-dot.v { background: #c8b96e; border-color: #c8b96e; }
   .mini-dot.p { background: #fdf6e3; border-color: #e0c97a; }
@@ -368,7 +390,7 @@
   .mini-earned {
     font-size: 10px;
     font-weight: 600;
-    color: #4a5f4c;
+    color: #4A5f4D;
   }
   .mini-status {
     font-size: 8px;
@@ -378,8 +400,8 @@
     letter-spacing: 0.8px;
     font-weight: 600;
   }
-  .mini-status.paid { background: #eaf4eb; color: #3a7a3c; border: 1px solid #b5d9b6; }
-  .mini-status.pending { background: #fdf6e3; color: #9a7820; border: 1px solid #e0c97a; }
+  .mini-status.paid { background: #eaf4eb; color: #3a7a3c; }
+  .mini-status.pending { background: #fdf6e3; color: #9a7820; }
 
   /* Decorative leaf watermark */
   .mini-card-watermark {
@@ -390,6 +412,11 @@
     pointer-events: none;
     line-height: 1;
   }
+  
+  /*** CUSTOM CSS STYLE ***/
+  input { padding: 1em !important; }
+  .card-top:nth-child(2) .brand span { color: #f4f1ea; }
+  .card-top:nth-child(2) .brand span strong { color: #c8b96e; }
 </style>
 </head>
 <body>
@@ -410,34 +437,37 @@
       <span class="label">card</span>
     </div>
   </div>
+  <div class="card-top">
+    <div class="brand">
+      <span> Add <strong>8 Congolese members</strong> to the KinHarvest WhatsApp group &nbsp;→&nbsp; earn <strong>R10 per card</strong> 🌿</span>
+    </div>
+  </div>
 
   <div class="card-body">
-
-    <!-- RULE INLINE -->
-    <div class="card-rule-inline">
-      Add <strong>10 Congolese members</strong> to the KinHarvest WhatsApp group &nbsp;→&nbsp; earn <strong>R10 per card</strong> 🌿
-    </div>
-
-    <!-- MEMBER + CARD NUMBER ROW -->
     <div class="member-row">
       <div class="member-name-block">
-        <div class="member-label">Member Name</div>
-        <input class="member-name-input" id="memberName" placeholder="Enter your name…" />
+        <div class="member-label">Mbote, Ndeko! Boni yo, lelo? <br />Card <span>#004</span></div>
+        <br />
+        <div class="card-rule-inline" behavior="alternate">
+          <strong>https://chat.whatsapp.com/HLnpOQVLS8tJyUrz9kOkBF</strong>
+        </div>
+        <!--<input type="tel" class="member-name-input" id="memberName" placeholder="Enter your phone number…" />-->
       </div>
       <div class="card-number-block">
-        <span class="card-number-label">Card</span>
-        <span class="card-number-value">#004</span>
+        <span class="card-number-label"><br />Copy<br />Link</span>
+        <!--<span class="card-number-value">#004</span>-->
       </div>
     </div>
 
     <div class="slots-label">Numbers Added</div>
     <div class="phone-grid" id="phoneGrid"></div>
 
+    
     <div class="progress-row">
       <div class="progress-text">
-        <strong id="countDisplay">0</strong> / 10 verified
+        Name: <strong id="countDisplay"><input type="text" class="progress-text-input" id="memberName" placeholder="Name & Surname" /></strong>
       </div>
-      <div class="earned-pill" id="earnedDisplay">R0 earned</div>
+      <div class="earned-pill" id="earnedDisplay">THE HQ</div>
     </div>
 
     <button class="send-verification-btn" id="sendBtn" disabled>
@@ -445,21 +475,21 @@
     </button>
   </div>
 
-  <div class="status-legend">
+  <!--<div class="status-legend">
     <div class="legend-item"><span class="legend-icon">⏳</span> Awaiting Verification</div>
     <div class="legend-item"><span class="legend-icon">🪙</span> Verified by Admin</div>
-  </div>
+  </div>-->
 </div>
 
 <!-- PREVIOUS CARDS -->
-<div class="section-label" style="margin-top:8px;">Previous Cards</div>
+  <!--<div class="section-label" style="margin-top:8px;">Previous Cards</div>-->
 
 <div class="prev-section">
   <div class="prev-cards-grid" id="prevCardsGrid"></div>
 </div>
 
 <script>
-  const STORAGE_KEY = 'kinharvest_card_003';
+  const STORAGE_KEY = 'kinharvest_card_004';
   const grid = document.getElementById('phoneGrid');
   const countDisplay = document.getElementById('countDisplay');
   const earnedDisplay = document.getElementById('earnedDisplay');
@@ -471,12 +501,15 @@
   let autosaveTimers = [];
 
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  
   if (saved.memberName) memberNameInput.value = saved.memberName;
 
+  /*
   memberNameInput.addEventListener('input', () => {
     clearTimeout(window._nameTimer);
     window._nameTimer = setTimeout(doSave, 3000);
   });
+  */
 
   // SA phone validation
   function validatePhone(val) {
@@ -492,7 +525,7 @@
     return 'empty';
   }
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 8; i++) {
     const slot = document.createElement('div');
     slot.className = 'phone-slot';
 
@@ -571,7 +604,7 @@
 
     slot.appendChild(num);
     slot.appendChild(input);
-    slot.appendChild(saveBtn);
+//    slot.appendChild(saveBtn);
     grid.appendChild(slot);
   }
 
@@ -603,9 +636,9 @@
   // PREVIOUS MINI CARDS
   // =====================
   const prevCards = [
-    { name: 'Mama Cécile', num: '#001', verified: 10, total: 10, earned: 'R10', status: 'paid' },
-    { name: 'Didier M.',   num: '#002', verified: 7,  total: 10, earned: 'R7',  status: 'pending' },
-    { name: 'Grace K.',    num: '#003', verified: 4,  total: 10, earned: 'R4',  status: 'pending' },
+    { name: 'May 1, 2026', num: '#001', verified: 10, total: 8, earned: 'R10', status: 'paid' },
+    { name: 'May 2, 2026',   num: '#002', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
+    { name: 'May 4th, 2026',    num: '#003', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
   ];
 
   const prevGrid = document.getElementById('prevCardsGrid');
@@ -616,7 +649,7 @@
 
     const top = document.createElement('div');
     top.className = 'mini-card-top';
-    top.innerHTML = `<span class="mini-brand">KINHARVEST</span><span class="mini-card-num">${card.num}</span>`;
+    top.innerHTML = `<span class="mini-brand">Referral Card</span><span class="mini-card-num">${card.num}<br />${card.name}</span>`;
 
     const body = document.createElement('div');
     body.className = 'mini-card-body';
@@ -624,6 +657,7 @@
     const name = document.createElement('div');
     name.className = 'mini-card-name';
     name.textContent = card.name;
+    name.textContent = "Matondi mingi, ndeko!";
 
     const dotsRow = document.createElement('div');
     dotsRow.className = 'mini-dots';
@@ -644,13 +678,14 @@
     watermark.className = 'mini-card-watermark';
     watermark.textContent = '🌿';
 
-    body.appendChild(name);
+      
     body.appendChild(dotsRow);
+    body.appendChild(name);
     body.appendChild(footer);
     mc.appendChild(top);
     mc.appendChild(body);
     mc.appendChild(watermark);
-    prevGrid.appendChild(mc);
+    prevGrid.prepend(mc);
   });
 </script>
 
