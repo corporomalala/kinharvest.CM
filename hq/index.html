@@ -46,7 +46,7 @@
 
   .section-label {
     width: 100%;
-    max-width: 380px;
+//    max-width: 380px;
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -58,7 +58,7 @@
   /* CARD */
   .card {
     width: 100%;
-    max-width: 380px;
+//    max-width: 40em;
     background: white;
     border-radius: 15px;
     overflow: hidden;
@@ -212,7 +212,7 @@
   .slot-input::placeholder { color: #ccc5b5; font-size: 10px; }
   .slot-input:focus { background: #fff; }
   .slot-input.valid   { background: #f4f8f4; color: #3a4f3b; }
-  .slot-input.invalid { background: #fdf4f4; color: #d9534f; }
+  .slot-input.invalid { background: #ede4e4; color: #d9534f; }
 
   .slot-save {
     width: 30px; height: 30px;
@@ -377,12 +377,11 @@
   .mini-dot {
    margin: 0 .1em;
     border-radius: 50%;
- //   border: 1px solid #e0dbd0;
     width: 4em; aspect-ratio: 1/1;
  //   flex-shrink: 0;
   }
-  .mini-dot.v { background: #c8b96e; border-color: #c8b96e; }
-  .mini-dot.p { background: #fdf6e3; border-color: #e0c97a; }
+  .mini-dot.v { background: #c8b96e; }
+  .mini-dot.p { background: #ede4e4; }
 
   .mini-card-footer {
     display: flex;
@@ -418,6 +417,7 @@
   /*** MEDIA-QUERIES ***/
   
   /*** CUSTOM CSS STYLE ***/
+  body { max-width: 40em; }
   input { padding: 1em !important; }
   .card-top:nth-child(2) .brand span { color: #f4f1ea; }
   .card-top:nth-child(2) .brand span strong { color: #c8b96e; }
@@ -681,7 +681,7 @@
   // =====================
   const prevCards = [
     { name: 'Mama Charlene', date: 'May 1, 2026', num: '#001', verified: 10, total: 8, earned: 'R10', status: 'paid' },
-    { name: 'Mama Charlene', date: 'May 2, 2026',   num: '#002', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
+    { name: 'Maman Charlene', date: 'May 2, 2026',   num: '#002', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
     { name: 'Mama Charlene', date: 'May 4th, 2026',    num: '#003', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
   ];
 
@@ -706,6 +706,7 @@
     dotsRow.className = 'mini-dots';
     for (let i = 0; i < card.total; i++) {
       const d = document.createElement('div');
+//      d.innerHTML = "AAA";
       d.className = 'mini-dot ' + (i < card.verified ? 'v' : 'p');
       dotsRow.appendChild(d);
     }
@@ -714,7 +715,7 @@
     footer.className = 'mini-card-footer';
     footer.innerHTML = `
       <span class="mini-earned">${card.earned} earned</span>
-      <span class="mini-status ${card.status}">${card.status === 'paid' ? 'Paid ✓' : 'Pending'}</span>
+      <span class="mini-status ${card.status}">${card.status === 'Paid ✓' : 'Pending'}</span>
     `;
 
     const watermark = document.createElement('div');
