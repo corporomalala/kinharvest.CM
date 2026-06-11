@@ -6,8 +6,8 @@ var tagShopCouponAlert1 = document.querySelector(".js-tagShopCouponAlert1"),
 								tagShopText = document.querySelector(".js-tagShopText"),
 								tagShopKits = document.querySelector(".js-tagShopKits");
 
-var tagVerificationSubmit = document.querySelector(".js-formVerification input[type='submit']"),
-								tagVerificationInputs = document.querySelectorAll(".js-formVerification input[type='text'], js-formVerification input[type='tel']"),
+var tagVerificationSubmit = document.querySelector(".js-formVerification4 input[type='submit']"),
+								tagVerificationInputs = document.querySelectorAll(".js-formVerification4 input[type='text'], js-formVerification4 input[type='tel']"),
 								tagVerificationInvoice = document.querySelector('input[type="file"]:not([multiple])'),
 								tagVerificationProofOfPayment = document.querySelector('input[type="file"][multiple]');
  /*** END DATA ***/
@@ -18,7 +18,7 @@ document.querySelector(".js-formProposal").addEventListener("submit", function(e
 				generateInvoice();
 });
 /*
-document.querySelector(".js-formVerification").addEventListener("submit", function(e){
+document.querySelector(".js-formVerification4").addEventListener("submit", function(e){
 				e.preventDefault();
 				sendVerificationRequest();
 });
@@ -84,7 +84,7 @@ async function sendVerificationRequest() {
 
     if (response.ok) {
 //      form.reset();
-    				document.querySelector(".js-formVerification").reset();
+    				document.querySelector(".js-formVerification4").reset();
       submitBtn.value = '✔ Order Confirmed';
       submitBtn.style.background = 'green';
     } else {
