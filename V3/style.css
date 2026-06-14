@@ -1,0 +1,449 @@
+/***  RESET ***/
+* { padding: 0; margin: 0; box-sizing: border-box;  font-size: 1em; font-weight: initial; }
+a { color: black; text-decoration: none; } a, label, figcaption { display: inline-block; } fieldset, input[type="submit"] { border: none; } img { width: 100%; height: auto; background-size: contain; } input[type="checkbox"], input[type="radio"] { display: none; } ol, ul { list-style: none; }
+/*** END RESET ***/
+
+/*** CANCEL ***/
+
+/*** END CANCEL ***/
+
+/*** Z-INDEXES ***/
+.clients hgroup { position: relative; z-index: 8; }
+/*** END Z-INDEXES ***/
+
+/*** COLORS ***/
+// f6f6f8, 55c4a3d
+ { background-color: #4A604D; }
+
+.clients-sold span:before { background-color: brown; }
+
+html, body,
+.m-products-list-item label { background-color: #f6f6f8; }
+
+.about hgroup figcaption,
+.clients-sold span,
+.header figcaption a,
+.u-button { color: white; }
+
+.cart label,
+.cart-content,
+.clients-new img,
+.clients-sold span,
+.u-button, .u-button:after { background-color: #4A604D; }
+.CSSfont { //color: #5c4a3b; }
+/*** END COLORS ***/
+
+/*** FONTS ***/
+@font-face {
+				font-family: "Kitahara";
+				src: url("KitaharaBrushScriptDemo.ttf") format("truetype");
+}
+@font-face {
+				font-family: "BRUSHSCI";
+				src: url("BRUSHSCI.ttf") format("truetype");
+}
+
+* { font-family: sans-serif; }
+.CSSfont, .CSSfont * { 
+				font-family: "Kitahara"; line-height: .88em;
+	//font-family: "BRUSHSCI";
+}
+
+.header h1, .header h1 * { font-weight: bold; }
+.about figure { text-align: center; }
+.cart-content div,
+.header h1,
+.header h2,
+.money { text-align: right; }
+.header figcaption a,
+.u-button { text-decoration: underline; }
+/*** END FONTS ***/
+
+/*** MEDIA ***/
+.header { background-image: url("pondu3.png"); }
+.header {
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: 100% auto;
+}
+
+.about figure span:after,
+.u-button:before { background-image: url("drc_c.png"); }
+.clients-sold span:before { background-image: url("drc_c.png"); }
+.about figure span:after,
+.clients-sold span:before,
+.u-button:before {
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 100%;
+}
+
+.about figure span {
+				background-position: 18%;
+				background-repeat: no-repeat;
+				background-size: 100% auto;
+}
+/*** END MEDIA ***/
+
+/*** UTILITIES ***/
+				/*** .u-button ***/
+				.u-button { position: relative; }
+				.u-button:before {
+								content: "";
+								position: absolute; top: 0; left: 104%;
+								height: 100%; aspect-ratio: 1/1;
+				}
+
+				.CSSfont {
+								padding: .5em 0;
+								text-transform: lowercase;
+				}
+								.CSSfont .CSScapitalize { text-transform: initial; }
+/*** END UTILITIES ***/
+
+/*** MIXINS ***/
+/*** END MIXINS ***/
+
+/*** COMPONENTS ***/
+				/*** .about ***/
+				.about figure,
+				.about figure img,
+				.about hgroup { position: relative; }
+				.about figure span {
+								position: absolute; right: .7em; right: .5em;
+								width: 40%;
+								display: block;
+				}
+				.about figure span:after {
+								content: "";
+								position: absolute; top: 18%; right: 18%;
+								width: 33%; aspect-ratio: 1/1;
+				}
+				.about hgroup { padding: 1em; }
+
+				/*** .brand ***/
+				.brand {
+								
+				}
+
+				/*** .cart ***/
+				.cart.CSSmidWrap { position: relative; }
+				.cart_dock {
+								position: absolute; top: 1em; right: 1em;
+								display: inline-block;
+				}
+				.cart label {
+								text-indent: -999px;
+								width: 3em; aspect-ratio: 1/1;
+				}
+				.cart-content {
+								position: absolute; top: 4em; right: 0;
+								display: inline-block;
+								padding: 1em;
+				}
+
+				/*** .clients ***/
+				.clients div { display: flex; }
+				.clients article { flex: 1; }
+
+				.clients { position: relative; }
+				.client hgroup {
+								margin-bottom: 1.8em;
+				}
+				.clients-new img { 
+								padding: 0 1em 1em 1em;
+				}
+				.clients-sold {
+								position: relative;
+								width: 40% !important; aspect-ratio: 2.5/4;
+								padding-top: 12em;
+				}
+				.clients-sold img {
+								position: absolute; top: -4em;
+								width: 100%;
+								padding: 1em;
+				}
+				.clients-sold span {
+								width: 100%;// height: 100%;
+								display: block;
+				}
+				
+				.clients-sold span:before {
+								content: "You can order your vegetables on a weekly subscription";
+								position: absolute; bottom: -.1em;
+								width: 100%;
+								padding: 1em 1em 1.8em 1em;
+//								text-align: center;
+								
+								background: initial !important;
+				}
+
+				/*** .header ***/
+				.header hgroup { padding: 1em; }
+
+				/*** .m-products ***/
+				.m-products-list { display: flex; }
+
+				.m-products_dock {
+								position: relative;
+								width: 88%; left: 12%;
+								overflow-x: auto;
+				}
+				.m-products-list {
+								padding-right: .5em;
+				}
+				.m-products-list-item {
+								position: relative;
+//								padding: .4em;
+								margin-left: .5em;
+				}
+				.m-products.products figcaption {
+								position: relative; bottom: .3em; left: .5em;
+				}
+				.m-products-list-item label {
+								position: absolute; top: .8em; left: .8em;
+								display: inline-block;
+								width: 1.2em; height: 1.2em;
+				}
+								.m-products.products .m-products_dock { width: 55%; left: 47.5%; }
+								.m-products.products .m-products-list { width: 100% !important; }
+				
+				/*** .radio ***/
+				.radio { position: relative; }
+				.radio hgroup p { //padding-bottom: 1.2em; }
+				.radio nav img {
+								position: absolute; top: 1em; left: 1.8em;
+								width: 3em;
+								animation: radio 1s infinite;
+				}
+
+/*** END COMPONENTS ***/
+
+/*** INTERACTIVITY ***/
+/*** END INTERACTIVITY ***/
+
+/*** MEDIA QUERIES ***/
+@media screen and (max-width: 50em) {
+				/*** FONTS ***/
+				html { font-size: 14px; }
+				.about h3,
+				.clients h3,
+				.header h2,
+				.radio h4 { font-size: 3em; }
+				
+				/*** UTILITIES: .u-button ***/
+				.u-button { padding: 1em 1.2em; }
+				
+				/*** COMPONENTS: .about ***/
+				.about figure img { width: 60%; top: 0em; left: -8%; }
+				.about figure span { 
+								top: -60%;
+								aspect-ratio: 2.5/4;
+				}
+				.about hgroup { width: 93%; left: 10%; }
+				
+				/*** COMPONENTS: .cart ***/
+				
+				/*** COMPONENTS: .clients ***/
+				.clients-sold { padding-top: 8em; }
+				.clients-sold span { height: 100%; }
+				
+				.clients { padding-right: .5em; }
+				.clients { padding-left: 15%; }
+				.clients hgroup { padding: 1.8em 0; }
+				
+				/*** COMPONENTS: .header ***/
+				
+				/*** COMPONENTS: .m-products ***/
+				.m-products-list { width: 170%; width: 133%; }
+				
+				/*** COMPONENTS: radio ***/
+				.radio hgroup {
+								position: relative;
+								width: 60%; left: 33%;
+				}
+				.radio hgroup p { padding-bottom: 4em; }
+}
+@media screen and (min-width: 50em) {
+				/*** FONTS ***/
+				html { font-size: 18px; }
+				.about h3,
+				.clients h3,
+				.header h2,
+				.radio h4 { font-size: 4em; }
+				
+				/*** UTILITIES: .u-button ***/
+				.u-button { padding: 1.2em 1.5em; }
+				.u-button:after {
+								content: "";
+								position: absolute; top: 0; right: 98%;
+								width: 888%; height: 100%;
+				}
+				
+				/*** COMPONENTS: .about ***/
+				.about figure img { width: 60%; top: -.1em; left: -8%; }
+				.about figure span {
+								top: -80%;
+								aspect-ratio: 9/16;
+				}
+				.about hgroup { width: 88%; left: 15%; }
+				
+				/*** COMPONENTS: .cart ***/
+				
+				/*** COMPONENTS: .clients ***/
+				.clients-sold span { aspect-ratio: 3/4; }
+				
+				.clients div { margin-left: 18%; }
+				.clients hgroup {
+								position: absolute; bottom: 3em; left: 0;
+								width: 60%;
+				}
+				
+				/*** COMPONENTS: .header ***/
+								/*** CSS-HACK: .header ***/
+								.header figcation { position: relative; }
+				
+				/*** COMPONENTS: .m-products ***/
+				.m-products-list { width: 120%; }
+				
+				/*** COMPONENTS: radio ***/
+				.radio_dock { display: flex; }
+				.radio_dock { flex-direction: row-reverse; }
+				.radio_dock { align-items: flex-end; }
+				
+				.radio_dock nav { width: 50% !important; }
+								/*** VIEWPORT: .radio ***/
+								.radio hgroup {
+												margin-left: 4em;
+												padding-left: 1.5em;
+								}
+				.radio hgroup p { padding-bottom: 7em; }
+}			
+/*** END MEDIA QUERIES ***/
+
+/*** ANIMATION ***/
+@keyframes radio {
+				from { transform: scale(1); }
+				to { transform: scale(1.2); }
+}
+/*** END ANIMATION ***/
+
+/*** DECORATION ***
+/*** .d-snapPoints ***/
+	.d-snapPoints-grandParent,
+	.d-snapPoints-parent { width:100%; height: 100%; }
+	.d-snapPoints-parent { width: 400%; }
+	.d-snapPoints-grandParent {
+		overflow: auto;
+		
+		scroll-snap-type: mandatory;
+		-webkit-scroll-snap-type: mandatory;
+		-ms-scroll-snap-type: mandatory;
+		-o-scroll-snap-type: mandatory;
+		
+		scroll-snap-points-x: repeat(50%);
+		-webkit-scroll-snap-points-x: repeat(50%);
+		-ms-scroll-snap-points-x: repeat(50%);
+		-o-scroll-snap-points-x: repeat(50%);
+		
+		scroll-snap-type: x mandatory;
+		-webkit-scroll-snap-type: x mandatory;
+		-ms-scroll-snap-type: x mandatory;
+		-o-scroll-snap-type: x mandatory;
+	}
+	.d-snapPoints {
+		width: 25%; height: 100%;
+		float: left;
+//		border: 1px solid purple;
+		
+		scroll-snap-align: center;
+		-webkit-scroll-snap-align: center;
+		-ms-scroll-snap-align: center;
+		-o-scroll-snap-align: center;
+	}
+/*** END DECORATION ***/
+
+/*** CSS TOOLS ***/
+.CSSbold { font-weight: bold; }
+
+.CSScenter {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+}
+
+.CSSmidWrap {
+				width: 100%; max-width: 44em;
+				display: block; margin: auto;
+				
+//				background-color: green;
+}
+				.shop .CSSmidwrap { //max-width: 50em; }
+
+.CSSflipX { transform: scaleX(-1); }
+.CSSitalic { font-style: italic; }
+.CSSnoWrap { white-space: nowrap; }
+.CSSspacer { flex: 1; }
+
+.CSSunderline { text-decoration: underline; }
+/*** END CSS TOOLS ***/
+
+/*** SANDBOX ***/
+.header { background-image: none; }
+.header:after { display: none; }
+
+.about hgroup figcaption,
+.about hgroup img,
+.cart,
+.store,
+.m-products label { display: none !important; }
+
+.about h3 { //background-color: purple; }
+/*
+.about hgroup { position: relative; }
+.about hgroup figcaption {
+				position: absolute; bottom: 1.5em; right: 1.5em;
+				width: 40%;
+				font-weight: bold;
+				text-align: right;
+}
+.about hgroup img {
+				position: relative;
+				width: 81.8%; left: 18%;
+}
+*/
+
+/*
+.m-products-list { //background-color: purple; }
+.m-products.vegetables .m-products-list-item:nth-child(1),
+.m-products.products .m-products-list-item:nth-child(1),
+.m-products.products .m-products-list-item:nth-child(2) { display: none; }
+*/
+
+.radio nav span { 
+				display: block;
+				padding-bottom: 1.5em;
+}
+
+.money {
+				padding: 1.8em 0;
+}
+.u-button.is-refund:before,
+.u-button.is-refund:after { left: initial; right: initial; }
+.u-button.is-refund:after { left: 98%; }
+.u-button.is-refund:before { right: 104%; }
+
+footer {
+				text-align: center;
+				padding: 1.8em;
+}
+/*** END SANDBOX ***/
+
+/*** CSS-HACKS ***/
+html, body { overflow-x: hidden; }
+.cart-content span { white-space: nowrap; }
+
+.m-products.vegetables { margin-bottom: 1.8em; }
+.products { padding: .7em; }
+.products img { margin: 0 0 .5em .5em; }
+/*** END CSS-HACKS ***/
