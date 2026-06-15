@@ -387,7 +387,7 @@ html, body,
 }
 
 .CSSmidWrap {
-				width: 100%; max-width: 44em;
+				width: 100%; max-width: 44em; max-width: 50em;
 				display: block; margin: auto;
 				
 //				background-color: green;
