@@ -470,6 +470,8 @@ article.contact > img {
 }
 article.contact form img { display: none; }
 .contact p { padding-top: 4em; }
+
+.m-products-item.is-onTheRight img { background-position: center; }
 /*** END SANDBOX ***/
 
 /*** TO GIL CLEAN ***/
