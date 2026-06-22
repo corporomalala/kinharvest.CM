@@ -167,8 +167,8 @@ html, body { background-color: #eee; }
 								// aspect-ratio: 4/4;
 				}
 				.m-products-item figcaption a { display: inline; }
-				.m-products-item img { //margin: 0 .5em; //display: none; }
 				.m-products-item figcaption p { padding-top: 1em; }
+				.m-products-item img { //margin: 0 .5em; //display: none; }
 
 				/*** .m-vegetables ***/
 				.m-vegetables-list-item div,
@@ -471,8 +471,15 @@ article.contact > img {
 article.contact form img { display: none; }
 .contact p { padding-top: 4em; }
 
-.m-products-item.is-onTheRight img { background-position: top right; }
+.m-products-item.nthChild3 img {
+				background-size: 80% auto !important;
+				background-position: center;
+}
+.m-products-item.is-onTheRight img {
+				background-size: 50% !important;
+				background-position: top right;
+}
 /*** END SANDBOX ***/
 
 /*** TO GIL CLEAN ***/
-.m-products-item .CSSfontDigits { display: none; }
+.m-products-item .CSSfontDigits {// display: none; }
