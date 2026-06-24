@@ -1,6 +1,6 @@
 /***  RESET ***/
-* { padding: 0; margin: 0; box-sizing: border-box;  font-size: 1em; font-weight: initial; }
-a { color: black; text-decoration: none; } a, label, figcaption { display: inline-block; } fieldset, input[type="submit"] { border: none; } img, video { width: 100%; height: auto; background-size: contain; background-repeat: no-repeat; } input, button { border: 0; }input[type="text"], input[type="tel"] { width: 100%; }input[type="checkbox"], input[type="radio"] { display: none; } ol, ul { list-style: none; }
+* { padding: 0; margin: 0; box-sizing: border-box;  font-size: 1em; font-weight: initial; background-size: contain; background-repeat: no-repeat; background-position: center; }
+a { color: black; text-decoration: none; } a, label, figcaption { display: inline-block; } fieldset, input[type="submit"] { border: none; } img, video { width: 100%; height: auto; } input, button { border: 0; }input[type="text"], input[type="tel"] { width: 100%; }input[type="checkbox"], input[type="radio"] { display: none; } ol, ul { list-style: none; }
 /*** END RESET ***/
 
 /*** CANCEL ***/
@@ -8,15 +8,15 @@ a { color: black; text-decoration: none; } a, label, figcaption { display: inlin
 /*** END CANCEL ***/
 
 /*** Z-INDEXES ***/
-.u-button_veil { position: relative; z-index: 8; }
-.u-button { position: relative; z-index: 18; }
-.u-button_wrap article { position: relative; z-index: 28; }
+.u-button { position: relative; z-index: 8; }
+.u-button_wrap article { position: relative; z-index: 18; }
 /*** END Z-INDEXES ***/
 
 /*** COLORS ***/
 .community img,
 .m-products-item,
 .showcase-packaging,
+.u-button_wrap article,
 .u-link,
 .CSSbtnColor,
 .js-btnAddToCart,
@@ -32,8 +32,7 @@ a { color: black; text-decoration: none; } a, label, figcaption { display: inlin
 
 
 input, button { background-color: white; }
-.m-vegetable-nav,
-.u-button_veil { background-color: rgba(255, 255, 255, .8); }
+.m-vegetable-nav { background-color: rgba(255, 255, 255, .8); }
 .js-btnSelectSize:not(.is-active) { background-color: rgba(255, 255, 255, .4); }
 .u-button_wrap article > label,
 .u-link,
@@ -65,7 +64,8 @@ html, body { background-color: #eee; }
 .cart tr .CSSfont,
 .cart table ~ * .CSSfont,
 .m-products .CSSfont,
-.m-vegetable-nav .CSSfont { font-size: 1.8em; }
+.m-vegetable-nav .CSSfont,
+.PR .CSSfont { font-size: 1.8em; }
 .cart-table-total span:nth-child(1) { font-size: 1.5em; }
 .m-products .CSSfontDigits { font-size: .7em; vertical-align: middle; margin-right: .18em; }
 
@@ -81,6 +81,12 @@ html, body { background-color: #eee; }
 /*** END FONTS ***/
 
 /*** MEDIA ***/
+article.contact { background-image: url("clientA.png"); }
+article.contact { 
+				background-size: 80%;
+				background-position: right;
+}
+
 .u-link:before { background-image: url("drc_c.png"); }
 .u-link:before {
 				background-position: center;
@@ -97,7 +103,6 @@ html, body { background-color: #eee; }
 .showcase-packaging,
 .m-vegetables img {
 				background-position: top;
-				background-repeat: no-repeat;
 }
 				.community img { background-size: cover; }
 /*** END MEDIA ***/
@@ -116,19 +121,20 @@ html, body { background-color: #eee; }
 				}
 				.u-button.atLinks { margin-bottom: 4em; float: right; }
 				.u-button.atVegetables { position: absolute; }
+/*
 								.u-button_wrap article {
 												position: absolute; 
 												display: block; margin: auto;
 	//											background-color: purple;
 								}
-								.u-button_wrap article.cart { top: -.1em; bottom: .1em; }
-								.u-button_wrap article.contact { right:  1em; }
-								.u-button_wrap article > img.cart-placeholder { aspect-ratio: 2.5/4; }
-								.u-button_wrap article > img.contact-placeholder { aspect-ratio: 1/1; }
-								.u-button_veil {
-												position: fixed; top: .1em; left: 0;
-												width: 100%; height: 100%;
+								.u-button_wrap article.cart { top: -.1em;// bottom: .1em; }
+*/
+								.u-button_wrap article { 
+												position: absolute; top: .1em;
+												overflow-y: auto;
 								}
+								.u-button_wrap article.cart { aspect-ratio: 2.5/4; }
+								.u-button_wrap article.contact { aspect-ratio: 1/1; }
 
 				/*** .u-link ***/
 				.u-link_wrap { display: inline-block; }
@@ -156,6 +162,7 @@ html, body { background-color: #eee; }
 
 				.m-products { 
 								padding: .1em 1em;
+								margin: 1.8em 0;
 								overflow-x: auto;
 				}
 				.m-products-item {
@@ -168,7 +175,6 @@ html, body { background-color: #eee; }
 				}
 				.m-products-item figcaption a { display: inline; }
 				.m-products-item figcaption p { padding-top: 1em; }
-				.m-products-item img { //margin: 0 .5em; //display: none; }
 
 				/*** .m-vegetables ***/
 				.m-vegetables-list-item div,
@@ -211,6 +217,7 @@ html, body { background-color: #eee; }
 				.nav,
 				.hgroup,
 				.invest,
+				.PR,
 				.showcase,
 				.u-button_wrap,
 				.u-button_wrap article form { padding: 1.5em; }
@@ -233,18 +240,18 @@ html, body { background-color: #eee; }
 				.cart table tr td * { // flex: 1; }
 
 				.cart { width: 100%; }
+/*
 				.u-button_wrap article, .u-button_wrap article form { width: 100%; height: 100%; }
+*/
 .u-button_wrap article > label {
 								position: absolute; top: 0; right: 0;
 								padding: .5em;
 				}
+/*
 				.u-button_wrap article form {
 								position: absolute; top: .1em; right: .1em;
-								width: 100%; height: 100% !important;
-//								overflow-y: scroll;
-								
-//								background-color: purple;
 				}
+*/
 				.cart table { width: 100%; }
 				.cart table tr { margin: .5em 0; }
 				.cart-table-details { padding: 0 1em; }
@@ -261,6 +268,14 @@ html, body { background-color: #eee; }
 								/*** CSS-HACKS ***/
 								.community { padding-top: 4em; }
 
+				/*** .PR ***/
+				.PR-list { display: flex; }
+				.PR-list figure { flex: 1; }
+
+				.PR-list figure { padding-left: 1em; }
+				.PR-article-title { padding: 1em 0; }
+				.PR img { aspect-ratio: 3/4; }
+
 				/*** .nav ***/
 				.nav { display: flex; align-items: center; }
 
@@ -270,11 +285,9 @@ html, body { background-color: #eee; }
 /*** END COMPONENTS ***/
 
 /*** INTERACTIVITY ***/
-.u-button_wrap article,
-.u-button_wrap + .u-button_veil { display: none; }
+.u-button_wrap article { display: none; }
 #chbx4cart:checked ~ main .u-button[for="chbx4cart"] ~ article,
-#chbx4contact:checked ~ main .u-button[for="chbx4contact"] ~ article,
-#chbx4cart:checked ~ main .cart_wrap + .u-button_veil { display: inline-block; }
+#chbx4contact:checked ~ main .u-button[for="chbx4contact"] ~ article { display: inline-block; }
 
 .m-vegetable-nav { display: none; }
 #rdb4vegetable2:checked ~ main .m-vegetables-list > li:first-child .m-vegetables-list-item:nth-child(2) .m-vegetable-nav,
@@ -296,6 +309,8 @@ html, body { background-color: #eee; }
 				.u-button_wrap article.cart { max-width: 70%; }
 				.u-button_wrap article.contact { max-width: 90%; }
 				
+				.u-button_wrap article.contact { right:  1em; }
+				
 				.u-button.atCommunity { position: absolute; right: 1.5em; top: -1.5em; }
 				
 				/*** MIXINS: .m-vegetables ***/
@@ -310,8 +325,8 @@ html, body { background-color: #eee; }
 				/*** COMPONENTS: .hgroup ***/
 				.hgroup p { margin-left: 10%; }
 				
-				/*** COMPONENTS: .hgroup ***/
-								/*** COMPONENTS: .hgroup ***/
+				/*** .PR ***/
+				.PR { margin-left: 4%; }
 				
 				/*** COMPONENTS: .showcase ***/
 								/*** CSS-HACKS: .showcase ***/
@@ -325,20 +340,17 @@ html, body { background-color: #eee; }
 				hgroup p { font-size: 1.8em; }
 				
 				/*** COMMONS ***/
-				.
 				.showcase { padding: 0; }
 				
 				/*** UTILITIES: .u-button_wrap ***/
 				.u-button_wrap article.cart { max-width: 40%; }
 				.u-button_wrap article.contact { width: 133%; }
 				
+				.u-button_wrap article.contact { right: .1em; }
+				
 				.u-button.atCommunity { position: absolute; left: -4em;  }
 				
-								.u-button_wrap article.contact { left: 60%; right:  initial; }
-								.u-button_wrap article.contact {
-												left: initial; right: .1em;
-												top: -15em;
-								}
+								.u-button_wrap article.contact {  }
 								.u-button_wrap article.contact { max-width: 70%; }
 				
 				/*** MIXINS: .m-vegetables ***/
@@ -353,6 +365,8 @@ html, body { background-color: #eee; }
 				/*** COMPONENTS: .community ***/
 								/*** VIEWPORT: .community ***/
 								.community { margin-left: 33.333%; }
+								/*** CSS-HACKS: .community ***/
+								.showcase figure { padding-left: 1em; }
 				
 				/*** COMPONENTS: .hgroup ***/
 				.hgroup p { margin-left: 15%; }
@@ -361,6 +375,9 @@ html, body { background-color: #eee; }
 								/*** VIEWPORT: .invest ***/
 								.invest { display: flex; }
 								.invest div { flex: 1; }
+				
+				/*** .PR ***/
+				.PR { margin-left: 31%; }
 				
 				/*** COMPONENTS: .showcase ***/
 								/*** VIEWPORT: .showcase ***/
@@ -459,8 +476,9 @@ html, body { background-color: #eee; }
 /*** END CSS-HACKS ***/
 
 /*** SANDBOX ***/
-.m-vegetable-nav div:last-child > span.CSSnoWrap { visibility: hidden !important; width: 1em !important;:}
-.u-button_veil { display: none !important; }
+/*
+.m-vegetable-nav div:last-child > span.CSSnoWrap { visibility: hidden !important; width: 1em !important; }
+*/
 
 article.contact > img {
 				background-image: url("clientA.png");
