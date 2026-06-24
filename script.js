@@ -1,7 +1,7 @@
 /*** DATA ***/
 var theTagParent, theTagIndex, theTagIndexes;
 var aCart = [];
-var vItemImage, vItemName, vItemPrice, vItemSize, vItemHTML,
+var vItemImage, vItemName, vItemPrice, vItemQuantity, vItemSize, vItemTotalPrice, vItemHTML,
 								vCartPrice, vCartTotal, vCartQuantity,
 								vProductPrice, vProductQuantity;
 /*** END DATA ***/
@@ -28,6 +28,10 @@ function doAddToCart(theTag) {
   		  		vItemPrice = theTagParent.querySelector(".js-vProductPrice").textContent;
   		  		vItemPrice = parseInt(vItemPrice.replace("R", ""));
   		  		
+  		  		vItemQuantity = theTagParent.querySelector(".js-vProductQuantity").textContent;
+  		  		
+  		  		vItemTotalPrice = vItemPrice * vItemQuantity;
+  		  		
   		  		theTagIndexes = theTagParent.querySelectorAll(".js-btnSelectSize");
   		  		theTagIndexes.forEach(theTagIndex => {
   		  		  		if(theTagIndex.classList.contains("is-active")) {
@@ -44,12 +48,12 @@ function doAddToCart(theTag) {
   		  														<span class="CSSspacer"></span>
   		  														<span>
   		  																		<span class="js-btnDecideQuantity" onclick="doDecideCartQuantity(this)">+</span>
-  																						<span class="js-vCartQuantity">1</span>
+  																						<span class="js-vCartQuantity">${vItemQuantity}</span>
   		  																		<span class="js-btnDecideQuantity" onclick="doDecideCartQuantity(this)">--</span>
   		  														</span>
   		  										</td>
   		  										<td class="cart-table-total">
-  		  														<span class="js-vCartTotal">R${vItemPrice}</span>
+  		  														<span class="js-vCartTotal">R${vItemTotalPrice}</span>
   		  														<span class="CSSspacer"></span>
   		  														<span class="CSSunderline" onclick="doDeleteCartItem(this)">remove</span>
   		  										</td>
@@ -94,7 +98,7 @@ function doDeleteCartItem(theTag) {
 }
 
  function doDecideQuantity(theTag) {
-   		theTagParent = theTag.closest(".m-product-nav div");
+   		theTagParent = theTag.closest(".m-vegetable-nav div");
    		theTagIndex = theTagParent.querySelector(".js-vProductQuantity");
    		vProductQuantity = parseInt(theTagIndex.textContent);
    		
@@ -105,7 +109,7 @@ function doDeleteCartItem(theTag) {
    		
    		theTagIndex.textContent = vProductQuantity;
    		
-   		theTagParent = theTag.closest(".m-product-nav");
+   		theTagParent = theTag.closest(".m-vegetable-nav");
    		theTagIndexes = theTagParent.querySelectorAll("label");
    		theTagIndexes.forEach(theTagIndex => {
    		  		if(theTagIndex.classList.contains("is-active")) {
@@ -117,7 +121,7 @@ function doDeleteCartItem(theTag) {
 function doSelectSize(theTag) {
   		vProductPrice = theTag.getAttribute("attr-price");
   		
-  		theTagParent = theTag.closest(".m-product-nav");
+  		theTagParent = theTag.closest(".m-vegetable-nav");
   		theTagIndexes = theTagParent.querySelectorAll("label");
   		theTagIndexes.forEach(theTagIndex => {
   		  		theTagIndex.classList.remove("is-active");
@@ -125,7 +129,7 @@ function doSelectSize(theTag) {
   		
   		theTag.classList.add("is-active");
   		
-  		theTagParent = theTag.closest(".m-products-list-item");
+  		theTagParent = theTag.closest(".m-vegetables-list-item");
   		theTagIndex = theTagParent.querySelector(".js-vProductPrice");
   		theTagIndex.textContent = "R" + vProductPrice;
 }
@@ -195,6 +199,3 @@ function getRadioState() {
   }
 }
 /*** END PLUGINS ***/
-
-
-
