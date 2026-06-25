@@ -270,9 +270,11 @@ article.contact {
 
 				/*** .PR ***/
 				.PR-list { display: flex; }
-				.PR-list figure { flex: 1; }
+				.PR-list { flex-wrap: wrap; }
+				.PR-list figure { flex: 1 50%; }
 
 				.PR-list figure { padding-left: 1em; }
+								.PR-list figure.is-AD { padding-top: 1em; }
 				.PR-article-title { padding: 1em 0; }
 				.PR img { aspect-ratio: 3/4; }
 
