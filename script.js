@@ -2,7 +2,7 @@
 var theTagParent, theTagIndex, theTagIndexes;
 var aCart = [];
 var vItemImage, vItemName, vItemPrice, vItemQuantity, vItemSize, vItemTotalPrice, vItemHTML,
-								vCartPrice, vCartTotal, vCartQuantity,
+								vCartPrice, vCartTotal, vCartGrandTotal, vCartQuantity,
 								vProductPrice, vProductQuantity;
 /*** END DATA ***/
  
@@ -31,6 +31,8 @@ function doAddToCart(theTag) {
   		  		vItemQuantity = theTagParent.querySelector(".js-vProductQuantity").textContent;
   		  		
   		  		vItemTotalPrice = vItemPrice * vItemQuantity;
+  		  		vCartGrandTotal = vItemTotalPrice;
+  		  		document.querySelector(".js-vCartGrandTotal").textContent = "R" + vCartGrandTotal;
   		  		
   		  		theTagIndexes = theTagParent.querySelectorAll(".js-btnSelectSize");
   		  		theTagIndexes.forEach(theTagIndex => {
@@ -199,3 +201,6 @@ function getRadioState() {
   }
 }
 /*** END PLUGINS ***/
+
+
+
