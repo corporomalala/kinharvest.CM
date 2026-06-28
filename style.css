@@ -499,6 +499,14 @@ article.contact form img { display: none; }
 				background-size: 50% !important;
 				background-position: top right;
 }
+
+.cart table.rise .cart-table-details {
+				text-align: right;
+}
+.cart table.rise .js-vCartGrandTotal {
+				font-weight: bold;
+				font-size: 1.8em;
+}
 /*** END SANDBOX ***/
 
 /*** TO GIL CLEAN ***/
