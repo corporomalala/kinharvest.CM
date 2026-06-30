@@ -208,6 +208,11 @@ article.contact {
 								/*** CSS-HACKS ***/
 								.m-vegetables-list li { width: 100%; }
 								.m-vegetables-list-item > label { width: 100%; }
+
+								.m-vegetables > span {
+												width: 180%;
+												display: block;
+								} .m-vegetables .u-link_wrap { float: right; }
 /*** END MIXINS ***/
 
 /*** COMPONENTS ***/
@@ -373,6 +378,8 @@ article.contact {
 								/*** VIEWPORT: .m-vegetables ***/
 								.m-vegetables-list { //display: flex; }
 								.m-vegetable-nav-top { flex-wrap: wrap; justify-content: flex-end; }
+								/*** CSS-HACKS: .m-vegetables ***/
+								.m-vegetables > span { width: initial; }
 				
 				/*** COMPONENTS: .brands ***/
 								/*** CSS-HACKS: .brands ***/
