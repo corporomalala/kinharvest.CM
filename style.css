@@ -212,6 +212,7 @@ article.contact {
 
 /*** COMPONENTS ***/
 				/*** COMMONS ***/
+				.brands,
 				.community,
 				.footer,
 				.nav,
@@ -230,6 +231,14 @@ article.contact {
 								padding: .4em .7em;
 								margin-bottom: .4em;
 				}
+
+				/*** .brands ***/
+				.brands { display: flex; }
+				.brands figure { flex: 1}
+
+								/*** CSS-HACKS ***/
+								.brands figure { padding-left: initial !important; }
+								.brands figure:nth-child(2) { text-align: right; }
 
 				/*** .cart ***/
 				.cart table tr,
@@ -319,6 +328,10 @@ article.contact {
 				.m-products_dock,
 				.m-vegetables-list > li ul { width: 180%; }
 				
+				/*** COMPONENTS: .brands ***/
+								/*** CSS-HACKS: .brands ***/
+								.brands { padding: initial 0 !important }
+				
 				/*** COMPONENTS: .cart ***/
 				.cart table img { width: 4em; }
 				
@@ -361,6 +374,10 @@ article.contact {
 								.m-vegetables-list { //display: flex; }
 								.m-vegetable-nav-top { flex-wrap: wrap; justify-content: flex-end; }
 				
+				/*** COMPONENTS: .brands ***/
+								/*** CSS-HACKS: .brands ***/
+								.brands { padding-left: 0; }
+				
 				/*** COMPONENTS: .cart ***/
 				.cart table img { width: 4em; }
 				
@@ -386,7 +403,7 @@ article.contact {
 								.showcase { display: flex; }
 								.showcase > figure { flex: 1; }
 				
-								.showcase figure { width: 33.333%; }
+								.showcase > figure { width: 33.333%; }
 								.showcase div { width: 66.666%; }
 								/*** CSS-HACKS: .showcase ***/
 								.showcase div { padding-left: 1.5em; }
@@ -507,6 +524,9 @@ article.contact form img { display: none; }
 				font-weight: bold;
 				font-size: 1.8em;
 }
+
+body { position: initial !important; }
+html { position: relative; }
 /*** END SANDBOX ***/
 
 /*** TO GIL CLEAN ***/
