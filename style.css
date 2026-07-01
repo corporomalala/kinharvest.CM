@@ -119,11 +119,12 @@ article.contact {
 								width: 4em; height: 4em;
 								display: inline-block;
 				}
+				.u-button.atJobs { float: right; clear: both !important; }
 				.u-button.atLinks { margin-bottom: 4em; float: right; }
 				.u-button.atVegetables { position: absolute; }
 /*
 								.u-button_wrap article {
-												position: absolute; 
+												position: absolute; 				
 												display: block; margin: auto;
 	//											background-color: purple;
 								}
@@ -133,6 +134,7 @@ article.contact {
 												position: absolute; top: .1em;
 												overflow-y: auto;
 								}
+								.u-button_wrap article.jobs,
 								.u-button_wrap article.cart { aspect-ratio: 2.5/4; }
 								.u-button_wrap article.contact { aspect-ratio: 1/1; }
 
@@ -247,7 +249,7 @@ article.contact {
 
 				/*** .cart ***/
 				.cart table tr,
-				.cart table tr td { display: flex; }
+				.cart table tr td { display: flex			; }
 				.cart-content,
 				.cart table tr td { flex-direction: column; }
 				.cart table tr td { justify-content: center; }
@@ -298,12 +300,13 @@ article.contact {
 				/*** .showcase ***/
 				.showcase-packaging { aspect-ratio: 2.5/4; }
 				
-/*** END COMPONENTS ***/
+/*** END 0 ***/
 
 /*** INTERACTIVITY ***/
 .u-button_wrap article { display: none; }
 #chbx4cart:checked ~ main .u-button[for="chbx4cart"] ~ article,
-#chbx4contact:checked ~ main .u-button[for="chbx4contact"] ~ article { display: inline-block; }
+#chbx4contact:checked ~ main .u-button[for="chbx4contact"] ~ article,
+#chbx4jobs:checked ~ main .u-button[for="chbx4jobs"] ~ article		 { display: inline-block; }
 
 .m-vegetable-nav { display: none; }
 #rdb4vegetable2:checked ~ main .m-vegetables-list > li:first-child .m-vegetables-list-item:nth-child(2) .m-vegetable-nav,
@@ -322,9 +325,11 @@ article.contact {
 				hgroup p { font-size: 1.18em; }
 				
 				/*** UTILITIES: .u-button_wrap ***/
+				.u-button_wrap article.jobs,
 				.u-button_wrap article.cart { max-width: 70%; }
 				.u-button_wrap article.contact { max-width: 90%; }
 				
+				.u-button_wrap article.jobs,
 				.u-button_wrap article.contact { right:  1em; }
 				
 				.u-button.atCommunity { position: absolute; right: 1.5em; top: -1.5em; }
@@ -335,7 +340,7 @@ article.contact {
 				
 				/*** COMPONENTS: .brands ***/
 								/*** CSS-HACKS: .brands ***/
-								.brands { padding: initial 0 !important }
+								.brands { padding: 1.8em 0 !important; }
 				
 				/*** COMPONENTS: .cart ***/
 				.cart table img { width: 4em; }
@@ -363,10 +368,12 @@ article.contact {
 				.showcase { padding: 0; }
 				
 				/*** UTILITIES: .u-button_wrap ***/
+				.u-button_wrap article.jobs { max-width: 60%; }
 				.u-button_wrap article.cart { max-width: 40%; }
 				.u-button_wrap article.contact { width: 133%; }
 				
-				.u-button_wrap article.contact { right: .1em; }
+				.u-button_wrap article.jobs,
+				.u-button_wrap article.contact { right: 1.5em; }
 				
 				.u-button.atCommunity { position: absolute; left: -4em;  }
 				
@@ -512,6 +519,7 @@ article.contact > img {
 				background-repeat: no-repeat;
 				background-position: right;
 }
+				.u-button.atJobs + 
 article.contact form img { display: none; }
 .contact p { padding-top: 4em; }
 
