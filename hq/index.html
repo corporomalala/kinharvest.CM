@@ -1,32 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>THE HQ / Loyalty Cards</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap');
-
-  * { margin: 0; padding: 0; font-size: 1em; box-sizing: border-box; }
-  
-  
-  .reward-badge { background: #c8b96e; }
-  .brand span,
-  .card-number-value,
-  .card-rule-inline strong,
-  .member-label span,
-  .slot-number { color: #c8b96e; }
-
-  body {
-    min-height: 100vh;
-    background: #eee;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    padding: 40px 20px 60px;
-    font-family: 'Inter', sans-serif;
-  }
+				<head>
+								<meta charset="UTF-8" />
+								<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+								<title>THE HQ / Loyalty Cards</title>
+				  
+				  		<style>
+				  						/*** RESET ***/
+				  						* { margin: 0; padding: 0; font-size: 1em; box-sizing: border-box; }
+				  						/*** END RESET ***/
+				  
+				  						/*** COLORS ***/
+				  						.reward-badge { background: #c8b96e; }
+				  						.brand span,
+				  						.card-number-value,
+				  						.card-rule-inline strong,
+				  						.member-label span,
+				  						.slot-number { color: #c8b96e; }
+				  
+				  						body { background-color: #eee; }
+				  						/*** END COLORS ***/
+				  						
+				  						/*** FONTS ***/
+				  						@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+				  
+				  						body { font-family: 'Inter', sans-serif; }
+				  						/*** END FONTS ***/
+				  
+				  						/*** COMPONENTS ***/
+				  										/*** COMMONS ***/
+				  										body { padding: 1.2em; }
+				  
+				  										/*** .card ***/
+				  										.card { margin: 1em 0; }
+				  						/*** END COMPONENTS ***/
+				  
+				  						/*** LIBRARIES ***/
+				  										/*** .passcode-wall ***/
+				  														.passcode-wall {
+				  														  		position: fixed; inset: 0; z-index: 9999;
+				  														  		background: #4A5f4D;
+				  														  		display: flex;
+				  														  		flex-direction: column;
+				  														  		align-items: center;
+				  														  		justify-content: center;
+				  														  		gap: 1em;
+				  														  		font-family: 'Inter', sans-serif;
+				  														}
+.passcode-wall h2 {
+    font-family: 'Playfair Display', serif;
+    color: #f4f1ea;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+.passcode-wall p {
+    color: #c8b96e;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.passcode-wall input {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-bottom: 1.5px solid #c8b96e;
+    color: #f4f1ea;
+    padding: 0.6em 1em !important;
+    font-size: 1em;
+    outline: none;
+    text-align: center;
+    letter-spacing: 3px;
+    width: 14em;
+    border-radius: 0;
+}
+.passcode-wall input::placeholder { color: rgba(244,241,234,0.4); }
+.passcode-wall .error {
+    color: #e07070;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    min-height: 1em;
+}
+.passcode-wall.hidden { display: none; }
+				  
 
   .page-title { text-align: center; }
   .page-title h1 {
@@ -46,7 +101,7 @@
 
   .section-label {
     width: 100%;
-    max-width: 380px;
+//    max-width: 380px;
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -58,7 +113,7 @@
   /* CARD */
   .card {
     width: 100%;
-    max-width: 380px;
+//    max-width: 40em;
     background: white;
     border-radius: 15px;
     overflow: hidden;
@@ -212,7 +267,7 @@
   .slot-input::placeholder { color: #ccc5b5; font-size: 10px; }
   .slot-input:focus { background: #fff; }
   .slot-input.valid   { background: #f4f8f4; color: #3a4f3b; }
-  .slot-input.invalid { background: #fdf4f4; color: #d9534f; }
+  .slot-input.invalid { background: #ede4e4; color: #d9534f; }
 
   .slot-save {
     width: 30px; height: 30px;
@@ -377,12 +432,11 @@
   .mini-dot {
    margin: 0 .1em;
     border-radius: 50%;
- //   border: 1px solid #e0dbd0;
     width: 4em; aspect-ratio: 1/1;
  //   flex-shrink: 0;
   }
-  .mini-dot.v { background: #c8b96e; border-color: #c8b96e; }
-  .mini-dot.p { background: #fdf6e3; border-color: #e0c97a; }
+  .mini-dot.v { background: #c8b96e; }
+  .mini-dot.p { background: #ede4e4; }
 
   .mini-card-footer {
     display: flex;
@@ -418,8 +472,7 @@
   /*** MEDIA-QUERIES ***/
   
   /*** CUSTOM CSS STYLE ***/
-	.card,
-	.prev-section { max-width: 40em; display: block; margin: auto; }
+  body { max-width: 40em; }
   input { padding: 1em !important; }
   .card-top:nth-child(2) .brand span { color: #f4f1ea; }
   .card-top:nth-child(2) .brand span strong { color: #c8b96e; }
@@ -449,7 +502,7 @@
     </div>
   </div>
 
-  <form method="post" action="https://formspree.io/f/xvolnyko" class="card-body">
+  <div class="card-body">
     <div class="member-row">
       <div class="member-name-block">
         <div class="member-label">Mbote, Ndeko! Boni yo, lelo? <br />Card <span>#004</span></div>
@@ -479,13 +532,26 @@
     <button class="send-verification-btn" id="sendBtn" disabled>
       🌿 Send for Verification
     </button>
-  </form>
+  </div>
   
 </div>
 
 <div class="prev-section">
   <div class="prev-cards-grid" id="prevCardsGrid"></div>
 </div>
+  
+  <!-- PASSCODE WALL -->
+<article class="passcode-wall" id="passcodeWall">
+    <h2>THE HQ</h2>
+    <p>Enter your team passcode</p>
+    <input 
+        type="password" 
+        id="passcodeInput" 
+        placeholder="_ _ _ _ _ _"
+        autocomplete="off"
+    />
+    <div class="error" id="passcodeError"></div>
+</article>
 
 <script>
   
@@ -683,7 +749,7 @@
   // =====================
   const prevCards = [
     { name: 'Mama Charlene', date: 'May 1, 2026', num: '#001', verified: 10, total: 8, earned: 'R10', status: 'paid' },
-    { name: 'Mama Charlene', date: 'May 2, 2026',   num: '#002', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
+    { name: 'Maman Charlene', date: 'May 2, 2026',   num: '#002', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
     { name: 'Mama Charlene', date: 'May 4th, 2026',    num: '#003', verified: 10,  total: 8, earned: 'R10',  status: 'paid' },
   ];
 
@@ -708,6 +774,7 @@
     dotsRow.className = 'mini-dots';
     for (let i = 0; i < card.total; i++) {
       const d = document.createElement('div');
+//      d.innerHTML = "AAA";
       d.className = 'mini-dot ' + (i < card.verified ? 'v' : 'p');
       dotsRow.appendChild(d);
     }
@@ -732,6 +799,39 @@
     mc.appendChild(watermark);
     prevGrid.prepend(mc);
   });
+    
+    /* ===================== */
+/* PASSCODE WALL         */
+/* ===================== */
+const PASSCODES = {
+    'Mama Charlene': 'pondu2026',
+    'Madam Ella':    'harvest01',
+    'Team HQ':       'thehq2026',
+};
+
+const passcodeWall  = document.getElementById('passcodeWall');
+const passcodeInput = document.getElementById('passcodeInput');
+const passcodeError = document.getElementById('passcodeError');
+
+// Check if already unlocked in this session
+if (sessionStorage.getItem('hq_unlocked') === 'true') {
+    passcodeWall.classList.add('hidden');
+}
+
+passcodeInput.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter') return;
+    const val = passcodeInput.value.trim();
+    const match = Object.values(PASSCODES).includes(val);
+
+    if (match) {
+        sessionStorage.setItem('hq_unlocked', 'true');
+        passcodeWall.classList.add('hidden');
+    } else {
+        passcodeError.textContent = 'Incorrect passcode. Try again.';
+        passcodeInput.value = '';
+        setTimeout(() => passcodeError.textContent = '', 2500);
+    }
+});
 </script>
 
 </body>
