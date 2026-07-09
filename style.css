@@ -1,3 +1,4 @@
+
 /***  RESET ***/
 * { padding: 0; margin: 0; box-sizing: border-box;  font-size: 1em; font-weight: initial; background-size: contain; background-repeat: no-repeat; background-position: center; }
 a { color: black; text-decoration: none; } a, label, figcaption { display: inline-block; } fieldset, input[type="submit"] { border: none; } img, video { width: 100%; height: auto; } input, button { border: 0; }input[type="text"], input[type="tel"] { width: 100%; }input[type="checkbox"], input[type="radio"] { display: none; } ol, ul { list-style: none; }
@@ -13,22 +14,21 @@ a { color: black; text-decoration: none; } a, label, figcaption { display: inlin
 /*** END Z-INDEXES ***/
 
 /*** COLORS ***/
-.community img,
 .m-products-item,
+.community img,
 .showcase-packaging,
 .u-button_wrap article,
+.u-button_wrap article > img,
 .u-link,
 .CSSbtnColor,
 .js-btnAddToCart,
 .js-btnSelectSize.is-active { background-color: #4A604D; }
 
-.community img,
-.u-button_wrap article > img,
-.u-button { background-color: goldenrod; background-color: #4A604D; color: white; }
+.u-button { background-color: goldenrod; color: white; }
 .m-products-item figcaption, .m-products-item *,
 .u-button_wrap article * { color: white; }
 .u-button_wrap article input { color: black; }
-.u-button_wrap article.contact > img { //background-color: goldenrod; }
+.u-button_wrap article.contact > img { background-color: goldenrod; }
 
 
 input, button { background-color: white; }
@@ -104,7 +104,8 @@ article.contact {
 .m-vegetables img {
 				background-position: top;
 }
-				.community img { background-size: cover; }
+				.community img,
+				.m-vegetables img { background-size: cover; }
 /*** END MEDIA ***/
 
 /*** UTILITIES ***/
