@@ -1,4 +1,3 @@
-
 /***  RESET ***/
 * { padding: 0; margin: 0; box-sizing: border-box;  font-size: 1em; font-weight: initial; background-size: contain; background-repeat: no-repeat; background-position: center; }
 a { color: black; text-decoration: none; } a, label, figcaption { display: inline-block; } fieldset, input[type="submit"] { border: none; } img, video { width: 100%; height: auto; } input, button { border: 0; }input[type="text"], input[type="tel"] { width: 100%; }input[type="checkbox"], input[type="radio"] { display: none; } ol, ul { list-style: none; }
@@ -188,6 +187,15 @@ article.contact {
 								overflow-x: scroll;
 								padding: 1em;
 				}
+
+				.m-vegetables_disclaimer p {
+								position: relative; left: 56%;
+								width: 44%;
+								padding: 1em;
+								
+								text-align: right;
+				}
+
 				.m-vegetables-list-item {
 								position: relative;
 								padding: .5em;
@@ -337,6 +345,7 @@ article.contact {
 				
 				/*** MIXINS: .m-vegetables ***/
 				.m-products_dock,
+				.m-vegetables_disclaimer,
 				.m-vegetables-list > li ul { width: 180%; }
 				
 				/*** COMPONENTS: .brands ***/
