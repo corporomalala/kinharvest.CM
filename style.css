@@ -77,6 +77,7 @@ html, body { background-color: #eee; }
 .m-vegetable-nav h4,
 .u-button_wrap.vRight { text-align: right; }
 .CSSfont, .CSSfont * { text-transform: lowercase; }
+.CSSfont .CSSfontDigits { text-transform: initial; }
 /*** END FONTS ***/
 
 /*** MEDIA ***/
@@ -170,7 +171,8 @@ article.contact {
 				.m-products-item {
 								aspect-ratio: 2.5/4;
 								margin: .1em .5em;
-				}
+				}		
+								.m-products.is-subscription .m-products-item { aspect-ratio: initial; }
 				.m-products-item figcaption {
 								padding: 1em;
 								// aspect-ratio: 4/4;
